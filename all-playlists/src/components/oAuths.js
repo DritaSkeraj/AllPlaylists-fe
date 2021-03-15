@@ -11,6 +11,9 @@ const OAuths = () => {
       <a href="http://localhost:5000/api/users/spotifyRedirect">
         <button>Sign in with Spotify!</button>
       </a>
+      <a href="http://localhost:5000/api/users/googleRedirect">
+        <button>Sign in with Youtube!</button>
+      </a>
     </div>
   );
 };

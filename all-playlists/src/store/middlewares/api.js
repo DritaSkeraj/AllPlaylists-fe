@@ -49,11 +49,18 @@ const api = ({ dispatch }) => (next) => async (action) => {
 			headers,
 			withCredentials: true,
 		});
-
+		console.log(response.data)
+		if(response.data.token){
+			console.log("tokens are set")
+			localStorage.setItem("accessToken",response.data.token)
+			localStorage.setItem("refreshToken",response.data.refreshToken)
+		}
 		//General
 		dispatch(actions.apiCallSuccess(response.data));
 		//Spesific
+		
 		if (onSuccess) dispatch({ type: onSuccess, payload: response.data });
+		
 	} catch (error) {
 		console.log("errorr is: ", error.response.data);
 		//General error action

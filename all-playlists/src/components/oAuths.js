@@ -14,12 +14,13 @@ const OAuths = (props) => {
 		dispatch(logout());
     history.push("/");
 	};
-
+    const data = `token=`+localStorage.getItem("accessToken");
+    const state = btoa(data);
   return (
     <div style={{display: "flex", flexDirection: "column", width: "30%", justifyContent: "center", margin: "0 auto"}}>
     
     <h1>Welcome {currentUser.username}!</h1>
-      <a href="http://localhost:5000/api/users/spotifyRedirect">
+      <a href={`http://localhost:5000/api/users/spotifyLogin?state=`+state}>
         <button>Sign in with Spotify!</button>
       </a>
       <a href="http://localhost:5000/api/users/googleRedirect">

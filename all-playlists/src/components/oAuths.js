@@ -23,10 +23,10 @@ const OAuths = (props) => {
       <a href={`http://localhost:5000/api/users/spotifyLogin?state=`+state}>
         <button>Sign in with Spotify!</button>
       </a>
-      <a href="http://localhost:5000/api/users/googleRedirect">
+      <a href={`http://localhost:5000/api/users/googleRedirect?state=`+state}>
         <button>Sign in with Youtube!</button>
       </a>
-      <a href="http://localhost:5000/api/users/deezerRedirect">
+      <a href={`http://localhost:5000/api/users/deezerRedirect?state=`+state}>
         <button>Sign in with Deezer!</button>
       </a>
       <button onClick={handleLogout}>Logout</button>

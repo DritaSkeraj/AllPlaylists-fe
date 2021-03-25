@@ -1,0 +1,64 @@
+.container{
+    background-color: #E8ECEF;
+    color: #7D8693;
+    width: 15%;
+    height: 90%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+}
+.logo{
+    width: 10rem;
+    height: 4rem;
+}
+.menu{
+    position: relative;
+    padding-left: 10%;
+}
+.menu h5{
+    color: #B7B8C0;
+}
+.option{
+    color: #44454C;
+    padding: 3px;
+    padding-left: 10px;
+    padding-top: 10px;
+    font-size: 0.95rem;
+    display: flex;
+    flex-direction: row;
+}
+.icon{
+    padding-right: 8px;
+}
+.playlists{
+    max-height: 38vh;
+    overflow-y: auto;
+}
+.playlists h6{
+    font-style: italic;
+    font-size: 0.8rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.platforms{
+    font-size: 1.5rem;
+    width: 10%;
+    padding-top: 8px;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 12%;
+}
+.platforms .spotify{
+    color: #1DB954;
+}
+.platforms .deezer{
+    color: #F49C1D;
+}
+.platforms .youtube{
+    color: #FF0000;
+}

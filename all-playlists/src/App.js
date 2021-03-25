@@ -3,6 +3,7 @@ import "./App.css";
 import Login from "./components/Login";
 import OAuths from "./components/oAuths";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import MainPage from "./pages/mainPage";
 
 class App extends React.Component {
   state = { authOk: true };
@@ -16,6 +17,9 @@ class App extends React.Component {
           </Switch>
           <Switch>
               <OAuths path="/oauths" exact />
+          </Switch>
+          <Switch>
+            <MainPage path="/main" exact/>
           </Switch>
         </Router>
       </div>

@@ -23,7 +23,7 @@ const SideMenu = () => {
                     <BsFillPlusCircleFill className="icon"/> 
                     Create playlist
                 </div>
-                <h5>YOUR PLAYLISTS :</h5>
+                <h5 className="mt-3">YOUR PLAYLISTS :</h5>
                 <div className="playlists">
                 <h6>blah blah blah</h6>
                 <h6>blah blah blah</h6>

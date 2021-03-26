@@ -7,19 +7,19 @@ import {SiSpotify, SiDeezer, SiYoutube} from "react-icons/si";
 
 const SideMenu = () => {
     return (
-        <div className="container">
+        <div className="menu-container">
             <img className="logo" src={logo}/>
             <div className="menu">
                 <h5>MENU</h5>
-                <div className='option'>
+                <div className='menu-option'>
                     <MdExplore className="icon"/> 
                     Explore
                 </div>
-                <div className='option'>
+                <div className='menu-option'>
                     <BsMusicNoteList className="icon"/> 
                     Genres
                 </div>
-                <div className='option'>
+                <div className='menu-option'>
                     <BsFillPlusCircleFill className="icon"/> 
                     Create playlist
                 </div>

@@ -1,0 +1,36 @@
+.header-container {
+  width: 100%;
+  height: 8vh;
+  position: relative;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0px 10px;
+}
+.search-holder {
+  width: auto;
+  height: 50%;
+  padding: 5px;
+  background-color: transparent;
+  border: 1px solid #7d8693;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 4px;
+}
+.search-input {
+  border: none;
+  background-color: #fafafa;
+}
+.search-input:focus {
+  border: none;
+  background-color: #fafafa;
+  outline: none;
+}
+.user-dropdown {
+  width: auto;
+  height: 50%;
+  position: relative;
+  float: right;
+}

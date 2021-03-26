@@ -1,0 +1,8 @@
+.main-container{
+    width: 85vw;
+    height: 90vh;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    background-color: #FAFAFA;
+}

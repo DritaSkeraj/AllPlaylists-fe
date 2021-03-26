@@ -1,4 +1,5 @@
 import React from 'react';
+import MainContent from '../components/mainContent';
 import Player from '../components/player';
 import SideMenu from '../components/sideMenu';
 
@@ -7,6 +8,7 @@ const MainPage = () => {
         <div>
             <SideMenu/>
             <Player/>
+            <MainContent/>
         </div>
     );
 };

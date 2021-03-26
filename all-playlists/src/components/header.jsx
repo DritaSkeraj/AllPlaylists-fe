@@ -11,10 +11,13 @@ const Header = () => {
         <input className="search-input" placeholder="Type here to search" />
       </div>
       <div className="user-dropdown">
-        <Dropdown as={ButtonGroup}>
-          <Button variant="success">Split Button</Button>
-
-          <Dropdown.Toggle variant="success" id="dropdown-split-basic" />
+        <Dropdown as={ButtonGroup} className='dropdown-wrapper'>
+          <Button className='profile-btn'>
+            <img src="http://placehold.it/10x10" className="profile-img"/>
+          </Button>
+          <Dropdown.Toggle id="dropdown-split-basic">
+          Name Surname
+          </Dropdown.Toggle>
 
           <Dropdown.Menu>
             <Dropdown.Item href="#/action-1">Action</Dropdown.Item>

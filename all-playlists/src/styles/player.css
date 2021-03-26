@@ -12,8 +12,6 @@
     background-color: #282828;
     max-height: 10vh;
     height: 100%;
-    padding-top: 0.5rem;
-    padding-top: 0.5rem;
     bottom: 0px;
     z-index: 10001;
     display: flex;
@@ -65,12 +63,12 @@
     width: 100%;
   }
   .nowplaying-albumart img {
-    height: 53px;
-    width: 53px;
+    height: 40px;
+    width: 70px;
     object-fit: cover;
-    box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.5);
-    margin: 3px 20px 0px 20px;
-    padding-top: 4px;
+    box-shadow: 0 0 10px 2px rgb(0 0 0 / 50%);
+    margin: 3px 10px 0px 20px;
+    border-radius: 4px;
   }
   .player-albumart .nowplaying-title {
     font-size: 0.9rem;
@@ -134,6 +132,9 @@
     margin: auto 0rem;
     background-color: grey;
     flex-shrink: 1;
+    border-radius: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
   }
   #nowplayingProgress {
     width: var(--nowplaying-progress);
@@ -177,6 +178,7 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
+      margin-right: 2rem;
   }
   
   .player-volume .fas.fa-volume-mute {
@@ -203,4 +205,9 @@
   }
   .player-icon{
       font-size: 1.5rem;
+      margin-left: 0.8rem;
+  }
+  .player-icon:hover{
+    transform: scale(1.25);
+    color: white;
   }

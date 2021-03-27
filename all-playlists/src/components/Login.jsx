@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import isEmail from "validator/lib/isEmail";
 import equals from "validator/lib/equals";
 import isEmpty from "validator/lib/isEmpty";
-import "./auth.scss";
+import "../styles/auth.scss";
 
 import { Row, Col } from "react-bootstrap";
 import { isAuthUser } from "../helpers/auth";

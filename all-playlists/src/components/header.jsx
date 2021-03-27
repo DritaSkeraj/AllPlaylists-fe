@@ -6,6 +6,11 @@ import {Dropdown, Button, ButtonGroup} from "react-bootstrap";
 const Header = () => {
   return (
     <div className="header-container">
+      <div className="options-holder">
+        <h5>MUSIC</h5>
+        <h5>PODCAST</h5>
+        <h5>LIVE</h5>
+      </div>
       <div className="search-holder">
         <AiOutlineSearch />
         <input className="search-input" placeholder="Type here to search" />

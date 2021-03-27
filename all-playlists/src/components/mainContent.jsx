@@ -1,11 +1,16 @@
 import React from 'react';
 import "../styles/mainContent.css";
 import Header from './header';
+import Swiper from './swiper';
+import {Container} from "react-bootstrap";
 
 const MainContent = () => {
     return (
         <div className="main-container">
-            <Header/>
+            <Container>
+                <Header/>
+                <Swiper/>
+            </Container>
         </div>
     );
 };

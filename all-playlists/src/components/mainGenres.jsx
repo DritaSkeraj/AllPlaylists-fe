@@ -48,12 +48,12 @@ const MainGenres = () => {
       </Row>
       <Row>
         <Col md={6}>
-          <div className="gen4">
+          <div className="gen4 main-hover">
             <p>Rock</p>
           </div>
         </Col>
         <Col md={6}>
-          <div className="gen3">
+          <div className="gen3 main-hover">
             <p>Rock</p>
           </div>
         </Col>

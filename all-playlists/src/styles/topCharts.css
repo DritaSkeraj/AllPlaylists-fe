@@ -1,0 +1,23 @@
+.charts-container{
+    flex-basis: 1;
+    border-radius: 4px;
+    background-color: white;
+    padding: 7px;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0rem;
+}
+.first-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.first-row>h5{
+    color: #44454c;
+    display: inline;
+}
+.first-row>p{
+    align-self: flex-end;
+    font-size: 0.8rem;
+    color: #b7b8c0;
+}

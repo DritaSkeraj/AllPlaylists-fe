@@ -1,0 +1,38 @@
+.song-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.3rem;
+    width: 100%;
+}
+.song-container img{
+    border-radius: 8px;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+.song-container p:first-child{
+    margin: 0rem 0.5rem;
+    font-weight: 700;
+}
+.song-container p:nth-child(2){
+    font-size: 0.8rem;
+}
+.button-play{
+    padding: 0rem;
+    background-color: transparent;
+    color: #5773ff;
+    border: 1px solid #b7b8c0;
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+}
+.play-icon{
+    position: relative;
+    top: -5%;
+    font-size: 1.2rem;
+    color: #5773ff;
+}
+.add-icon{
+    color: #b7b8c0;
+}

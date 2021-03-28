@@ -3,7 +3,7 @@ import "../styles/artist.css";
 
 const Artist = () => {
     return (
-        <div className="artist-container">
+        <div className="artist-container main-hover">
             <img src="http://placehold.it/50x50" />
             <h6>Artist Name</h6>
             <p>16M Plays</p>

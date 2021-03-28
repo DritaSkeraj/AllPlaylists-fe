@@ -7,3 +7,16 @@
     background-color: #FAFAFA;
     overflow-y: auto;
 }
+.main-hover{
+}
+.main-hover:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.song-hover:hover{
+    transform: scale(1.01);
+    cursor: pointer;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    background-color: #FAFAFA;
+}

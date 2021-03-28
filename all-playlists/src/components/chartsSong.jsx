@@ -6,7 +6,7 @@ import {BsPlusSquareFill} from "react-icons/bs";
 
 const ChartsSong = () => {
   return (
-    <div className="song-container">
+    <div className="song-container song-hover">
       <Container>
         <Row>
           <Col xs={1}>

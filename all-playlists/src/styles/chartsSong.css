@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0.3rem;
+    padding: 0.3rem;
     width: 100%;
 }
 .song-container img{
@@ -14,6 +14,7 @@
 .song-container p:first-child{
     margin: 0rem 0.5rem;
     font-weight: 700;
+    color: #44454c;
 }
 .song-container p:nth-child(2){
     font-size: 0.8rem;

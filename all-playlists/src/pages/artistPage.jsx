@@ -5,7 +5,8 @@ import "../styles/artist.css";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 import SideMenu from "../components/sideMenu";
-import Player from "../components/sideMenu";
+import Player from "../components/player";
+import "../styles/mainContent.css";
 
 const ArtistPage = (props) => {
   const artistId = props.location.pathname.split("/")[2];
@@ -42,6 +43,8 @@ const ArtistPage = (props) => {
 
   return (
     <div>
+    <SideMenu/>
+    <div className="main-container">
       <Container>
         <Header />
         <div>
@@ -84,6 +87,8 @@ const ArtistPage = (props) => {
             }
         </div>
       </Container>
+      </div>
+      <Player/>
     </div>
   );
 };

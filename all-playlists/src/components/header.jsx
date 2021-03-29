@@ -3,7 +3,12 @@ import "../styles/header.css";
 import { AiOutlineSearch } from "react-icons/ai";
 import {Dropdown, Button, ButtonGroup} from "react-bootstrap";
 
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory, Link } from "react-router-dom";
+
 const Header = () => {
+
+  const currentUser = useSelector((state) => state.user.data)
   return (
     <div className="header-container">
       <div className="options-holder">
@@ -18,10 +23,10 @@ const Header = () => {
       <div className="user-dropdown">
         <Dropdown as={ButtonGroup} className='dropdown-wrapper'>
           <Button className='profile-btn'>
-            <img src="http://placehold.it/10x10" className="profile-img"/>
+            <img src={currentUser?.image} className="profile-img"/>
           </Button>
           <Dropdown.Toggle id="dropdown-split-basic">
-          Name Surname
+          {currentUser?.username}
           </Dropdown.Toggle>
 
           <Dropdown.Menu>

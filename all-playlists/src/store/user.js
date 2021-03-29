@@ -4,6 +4,7 @@ import { apiCall } from "./api";
 
 const initialState = {
 	data: {},
+	playlists: [],
 	isLoggedIn: false,
 	errorMessage: "",
 	loading: false,
@@ -44,6 +45,14 @@ export default slice.reducer;
 export const getUserProfile = () =>
 	apiCall({
 		url: `${process.env.REACT_APP_BE_URL}/users/me`,
+		onStart: requested.type,
+		onSuccess: loginSuccess.type,
+		onError: failed.type,
+	});
+
+export const getUserPlaylists = () =>
+	apiCall({
+		url: `${process.env.REACT_APP_BE_URL}/playlists`,
 		onStart: requested.type,
 		onSuccess: loginSuccess.type,
 		onError: failed.type,

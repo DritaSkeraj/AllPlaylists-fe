@@ -1,0 +1,83 @@
+.genres-container{
+    flex-basis: 1;
+    border-radius: 4px;
+    background-color: white;
+    padding: 7px;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0rem;
+}
+.first-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.first-row>h5{
+    color: #44454c;
+    display: inline;
+}
+.first-row>p{
+    align-self: flex-end;
+    font-size: 0.8rem;
+    color: #b7b8c0;
+}
+.gen1{
+    background-color: #D9E7F3;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    border-radius: 8px;
+    height: 4rem;
+    width: 100%;
+}
+.gen2{
+    background-color: #FFFAF1;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    border-radius: 8px;
+    height: 4rem;
+    width: 100%;
+}
+.gen3{
+    background-color: #FFF0EB;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    border-radius: 8px;
+    height: 4rem;
+    width: 100%;
+}
+.gen4{
+    background-color: #E5EEEE;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    border-radius: 8px;
+    height: 4rem;
+    width: 100%;
+}
+.gen5{
+    background-color: #FFF7FC;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    border-radius: 8px;
+    height: 4rem;
+    width: 100%;
+}
+.gen6{
+    background-color: #F1EFFF;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    border-radius: 8px;
+    height: 4rem;
+    width: 100%;
+}

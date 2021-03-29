@@ -1,0 +1,23 @@
+.artist-container{
+    width: 6rem;
+    height: 5rem;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0.5rem 1rem;
+}
+.artist-container>img{
+    width: 5rem;
+    height: 4rem;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.artist-container>h6{
+    font-size: 0.8rem;
+    color: #44454c;
+    padding-top: 0.5rem;
+}
+.artist-container>p{
+    color: #b7b8c0;
+    font-size: 0.8rem;
+}

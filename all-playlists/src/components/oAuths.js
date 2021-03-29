@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { logout } from "../store/user";
 
 const OAuths = (props) => {
@@ -30,6 +30,7 @@ const OAuths = (props) => {
         <button>Sign in with Deezer!</button>
       </a>
       <button onClick={handleLogout}>Logout</button>
+      <Link to="/main">main</Link>
     </div>
   );
 };

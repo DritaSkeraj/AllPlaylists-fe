@@ -9,18 +9,12 @@ const MainArtists = () => {
   const [artistsIds, setArtistsIds] = useState(['860', '92', '115', '705', '368', '412', '892', '416239', '415']);
 
   useEffect(async()=> {
-    const promiseArray = artistsIds.map(async(artist, key) => {
-      const result = await fetchArtist(artist);
-      return{
-        data: result.data
-      };
-    })
-    const result = await Promise.all(promiseArray);
-    setArtists({"data": result});
+    const result = await fetchArtist();
+    setArtists({"data": result})
 }, [])
 
-  const fetchArtist = async(id) => {
-    return await axios.get(`https://cors-anywhere-ds.herokuapp.com/http://api.deezer.com/artist/${id}`);
+  const fetchArtist = async() => {
+    return await axios.get(`https://cors-anywhere-ds.herokuapp.com/https://api.deezer.com/chart`);
   }
 
   return (
@@ -30,10 +24,11 @@ const MainArtists = () => {
       <p>See all</p>
       </div>
       <div className="artists-row">
-      {console.log("artists: ", artists.data)}
+      {console.log("artists: ", artists?.data?.data?.artists?.data?.slice(0,9))
+    }
         {
-           artists?.data?.map((artist, key) => 
-            <Artist data={artist.data} />
+           artists?.data?.data?.artists?.data?.slice(0,9).map((artist, key) => 
+            <Artist data={artist} />
           )
         }
         

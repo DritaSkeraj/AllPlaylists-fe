@@ -18,43 +18,43 @@ const MainGenres = () => {
         </Col>
         <Col md={5}>
           <div className="gen2 main-hover">
-            <p>Rock</p>
+            <p>Pop</p>
           </div>
         </Col>
       </Row>
       <Row>
         <Col md={6}>
           <div className="gen3 main-hover">
-            <p>Rock</p>
+            <p>Blues</p>
           </div>
         </Col>
         <Col md={6}>
           <div className="gen4 main-hover">
-            <p>Rock</p>
+            <p>Metal</p>
           </div>
         </Col>
       </Row>
       <Row>
         <Col md={7}>
           <div className="gen5 main-hover">
-            <p>Rock</p>
+            <p>Jaz</p>
           </div>
         </Col>
         <Col md={5}>
           <div className="gen6 main-hover">
-            <p>Rock</p>
+            <p>Latin music</p>
           </div>
         </Col>
       </Row>
       <Row>
         <Col md={6}>
           <div className="gen4 main-hover">
-            <p>Rock</p>
+            <p>K-pop</p>
           </div>
         </Col>
         <Col md={6}>
           <div className="gen3 main-hover">
-            <p>Rock</p>
+            <p>Electronic</p>
           </div>
         </Col>
       </Row>

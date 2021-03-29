@@ -7,7 +7,6 @@ const Artist = (props) => {
         {console.log("artist props:::::", props)}
             <img src={props.data.picture} />
             <h6>{props.data.name}</h6>
-            <p>{props.data.nb_fan} Fans</p>
         </div>
     );
 };

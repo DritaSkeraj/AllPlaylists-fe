@@ -1,0 +1,70 @@
+.artist-info{
+    height: 35vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+.artist-info img{
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    margin-right: 2rem;
+    margin-left: 2rem;
+}
+.artist-info h1{
+    font-size: 4rem;
+}
+.artist-holder{
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 0px;
+    border-radius: 10px;
+    box-shadow: 2px 0px 7px #7d8693;
+}
+#artist-pg h3{
+    margin-top: 0.9rem;
+    margin-bottom: 0.9rem;
+}
+.artist-holder h3{
+    margin: 0.5rem 0.3rem;
+}
+.artist-holder.playlist-holder{
+    padding: 0.3rem;
+}
+.artist-holder.playlist-holder img{
+    border-radius: 8px;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    justify-content: flex-end;
+    margin-left: 0.5rem;
+}
+.artist-holder.playlist-holder p{
+    font-size: 0.8rem;
+}
+.artist-holder.playlist-holder .playlist-item:hover{
+    transform: scale(1.01);
+    cursor: pointer;
+}
+.artist-album{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem;
+}
+.artist-album:hover{
+    transform: scale(1.01);
+    cursor: pointer;
+}
+.artist-album img{
+    width: 11rem;
+    height: 11rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 8px;
+}

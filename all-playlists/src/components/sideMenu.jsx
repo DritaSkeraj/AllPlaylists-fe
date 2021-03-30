@@ -4,6 +4,7 @@ import "../styles/sideMenu.css";
 import { MdExplore } from "react-icons/md";
 import { BsMusicNoteList, BsFillPlusCircleFill } from "react-icons/bs";
 import { SiSpotify, SiDeezer, SiYoutube } from "react-icons/si";
+import {getUserProfile} from "../store/user";
 
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
@@ -25,6 +26,7 @@ const SideMenu = () => {
     console.log("phew!!!!!!!! anyways, current user: ", currentUser);
 
   useEffect(()=>{
+    dispatch(getUserProfile());
     setTimeout(()=>{
         let u = JSON.parse(localStorage.getItem("currentUser"));
         console.log("current user from useEffect========> ", u)

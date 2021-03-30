@@ -37,7 +37,7 @@ const MainGenres = () => {
       <Row>
         <Col md={7}>
           <div className="gen5 main-hover">
-            <p>Jaz</p>
+            <p>Jazz</p>
           </div>
         </Col>
         <Col md={5}>

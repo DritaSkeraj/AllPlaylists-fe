@@ -20,6 +20,7 @@ function Login(props) {
       history.push("/");
     }
   }, []);
+
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -45,7 +46,8 @@ function Login(props) {
 
       setTimeout(() => {
         dispatch(getUserProfile());
-        history.push("/oauths");
+        //history.push("/oauths");
+        history.push("/main");
       }, 1000);
     }
   };

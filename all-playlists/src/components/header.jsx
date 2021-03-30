@@ -4,9 +4,19 @@ import { AiOutlineSearch } from "react-icons/ai";
 import {Dropdown, Button, ButtonGroup} from "react-bootstrap";
 
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
+import { logout } from "../store/user";
 
 const Header = () => {
+
+  const dispatch = useDispatch();
+	const history = useHistory();
+
+	const handleLogout = () => {
+		dispatch(logout());
+    history.push("/");
+	};
 
   const currentUser = useSelector((state) => state.user.data)
   return (
@@ -30,9 +40,8 @@ const Header = () => {
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+            <Dropdown.Item href="#/action-1">My profile</Dropdown.Item>
+            <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>

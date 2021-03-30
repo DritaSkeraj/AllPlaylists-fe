@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/header.css";
 import { AiOutlineSearch } from "react-icons/ai";
 import {Dropdown, Button, ButtonGroup} from "react-bootstrap";
@@ -10,6 +10,9 @@ import { logout } from "../store/user";
 
 const Header = () => {
 
+  const [user, setUser] = useState(null);
+
+  const currentUser = useSelector((state) => state.user.data);
   const dispatch = useDispatch();
 	const history = useHistory();
 
@@ -18,7 +21,19 @@ const Header = () => {
     history.push("/");
 	};
 
-  const currentUser = useSelector((state) => state.user.data)
+  if(currentUser._id)
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
+  else 
+    console.log("phew!!!!!!!! anyways, current user: ", currentUser);
+
+  useEffect(()=>{
+    setTimeout(()=>{
+        let u = JSON.parse(localStorage.getItem("currentUser"));
+        console.log("current user from useEffect========> ", u)
+        setUser(u);
+    }, 1000)
+  }, [])
+
   return (
     <div className="header-container">
       <div className="options-holder">
@@ -33,10 +48,10 @@ const Header = () => {
       <div className="user-dropdown">
         <Dropdown as={ButtonGroup} className='dropdown-wrapper'>
           <Button className='profile-btn'>
-            <img src={currentUser?.image} className="profile-img"/>
+            <img src={user?.image} className="profile-img"/>
           </Button>
           <Dropdown.Toggle id="dropdown-split-basic">
-          {currentUser?.username}
+          {user?.username}
           </Dropdown.Toggle>
 
           <Dropdown.Menu>

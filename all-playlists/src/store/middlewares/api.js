@@ -50,9 +50,9 @@ const api = ({ dispatch }) => (next) => async (action) => {
 			withCredentials: true,
 		});
 		//saving tokens in the local store
-		console.log(response.data)
+		console.log("response for local storage: ", response.data)
 		if(response.data.token){
-			console.log("tokens are set")
+			console.log("tokens are set", response)
 			localStorage.setItem("accessToken",response.data.token)
 			localStorage.setItem("refreshToken",response.data.refreshToken)
 		}

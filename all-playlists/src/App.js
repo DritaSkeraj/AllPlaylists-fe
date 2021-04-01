@@ -6,6 +6,7 @@ import OAuths from "./components/oAuths";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MainPage from "./pages/mainPage";
 import ArtistPage from "./pages/artistPage";
+import PlaylistPage from "./pages/playlistPage";
 
 class App extends React.Component {
   state = { authOk: true };
@@ -25,6 +26,9 @@ class App extends React.Component {
           </Switch>
           <Switch>
             <ArtistPage path="/artist/:id" exact/>
+          </Switch>
+          <Switch>
+            <PlaylistPage path="/playlist/:id" exact/>
           </Switch>
         </Router>
       </div>

@@ -29,7 +29,6 @@ const SideMenu = () => {
     dispatch(getUserProfile());
     setTimeout(()=>{
         let u = JSON.parse(localStorage.getItem("currentUser"));
-        console.log("current user from useEffect========> ", u)
         setUser(u);
     }, 1000)
   }, [])
@@ -54,19 +53,25 @@ const SideMenu = () => {
         <h5 className="mt-3">YOUR PLAYLISTS :</h5>
         <div className="playlists">
           {user?.spotifyAccount?.sPlaylists.map((p) => (
+            <Link to={`/playlist/${p.id}~spotify`}>
             <h6>
               <SiSpotify /> {p.name}
             </h6>
+            </Link>
           ))}
           {user?.googleAccount?.ytPlaylists?.items.map((p) => (
+              <Link to={`/playlist/${p.id}~youtube`}>
             <h6>
               <SiYoutube /> {p.snippet.title}
             </h6>
+            </Link>
           ))}
           {user?.deezerAccount?.dzPlaylists?.data.map((p) => (
+              <Link to={`/playlist/${p.id}~deezer`}>
             <h6>
               <SiDeezer /> {p.title}
             </h6>
+            </Link>
           ))}
         </div>
         <div className="platforms">

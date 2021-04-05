@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import isEmail from "validator/lib/isEmail";
-import equals from "validator/lib/equals";
 import isEmpty from "validator/lib/isEmpty";
 import "../styles/auth.scss";
 
@@ -9,6 +7,7 @@ import { Row, Col } from "react-bootstrap";
 import { isAuthUser } from "../helpers/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserPlaylists, getUserProfile, login } from "../store/user";
+import store from "../store/setup/store";
 
 function Login(props) {
   const history = useHistory();
@@ -43,11 +42,19 @@ function Login(props) {
       let { username, password } = formData;
       let body = { username, password };
       dispatch(login(body));
-
       setTimeout(() => {
         dispatch(getUserProfile());
-        //history.push("/oauths");
-        history.push("/main");
+        const storeState = store.getState();
+        console.log("🚩🚩🚩: ", storeState.user.errorMessage)
+        if(storeState.user.errorMessage == "Invalid Credentials"){
+          history.block(() => {
+            console.log("not sending you anywhere with those credentials: 🚗🚗🚗")
+            });
+            setErrorMsg("Wrong username or password!");
+        }else{
+          history.push("/main");
+          console.log("these would do 🚀🚀🚀");
+        }
       }, 1000);
     }
   };
@@ -97,6 +104,7 @@ function Login(props) {
 
           <Col md={12}>{showSignupForm()}</Col>
         </Row>
+        <p>{errorMsg}</p>
       </div>
     </div>
   );

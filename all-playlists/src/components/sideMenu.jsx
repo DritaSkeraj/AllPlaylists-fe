@@ -23,7 +23,7 @@ const SideMenu = () => {
   if(currentUser._id)
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
   else 
-    console.log("phew!!!!!!!! anyways, current user: ", currentUser);
+    console.log("uppsss!!!!!!!! anyways, current user: ", currentUser);
 
   useEffect(()=>{
     dispatch(getUserProfile());

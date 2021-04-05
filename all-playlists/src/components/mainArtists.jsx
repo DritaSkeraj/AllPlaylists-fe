@@ -25,8 +25,7 @@ const MainArtists = () => {
       <p>See all</p>
       </div>
       <div className="artists-row">
-      {console.log("artists: ", artists?.data?.data?.artists?.data?.slice(0,9))
-    }
+  {/*console.log("artists: ", artists?.data?.data?.artists?.data?.slice(0,9))*/}
         {
            artists?.data?.data?.artists?.data?.slice(0,9).map((artist, key) => 
             <Link to={`/artist/${artist.id}`}><Artist data={artist} /></Link>

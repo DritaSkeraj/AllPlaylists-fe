@@ -24,12 +24,11 @@ const Header = () => {
   if(currentUser._id)
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
   else 
-    console.log("phew!!!!!!!! anyways, current user: ", currentUser);
+    console.log("upsss! anyways, current user: ", currentUser);
 
   useEffect(()=>{
     setTimeout(()=>{
         let u = JSON.parse(localStorage.getItem("currentUser"));
-        console.log("current user from useEffect========> ", u)
         setUser(u);
     }, 1000)
   }, [])

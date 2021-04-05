@@ -19,6 +19,7 @@ const Header = () => {
 	const handleLogout = () => {
 		dispatch(logout());
     history.push("/");
+    localStorage.clear();
 	};
 
   if(currentUser._id)

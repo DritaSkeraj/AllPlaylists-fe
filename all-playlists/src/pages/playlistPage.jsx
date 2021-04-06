@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 
-import {Container, Row, Col} from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import "../styles/mainContent.css";
 import "../styles/playlistPage.css";
 
 import Player from "../components/player";
 import SideMenu from "../components/sideMenu";
 import Header from "../components/header";
+import PlaylistsSong from '../components/playlistsSong';
 
 const PlaylistPage = (props) => {
 
@@ -25,9 +26,9 @@ const PlaylistPage = (props) => {
     fetchPlaylist(platform);
   }, [props.location.pathname]);
 
-  useEffect(()=>{
-      setUser(JSON.parse(localStorage.getItem("currentUser")))
-  },[])
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("currentUser")));
+  }, []);
 
   const fetchPlaylist = async (playlistPlatform) => {
     if (playlistPlatform === "spotify") {
@@ -41,14 +42,16 @@ const PlaylistPage = (props) => {
       );
       console.log("spotify fetch response: ", res.data);
       setPlaylist(res.data);
-      let playlist = currentUser.spotifyAccount.sPlaylists.find(p => p.id === playlistId)
+      let playlist = currentUser.spotifyAccount.sPlaylists.find(
+        (p) => p.id === playlistId
+      );
       setPlaylistToDisplay({
-        "id": playlistId,
-        "img": res.data.items[0].track.album.images[0].url,
-        "name": playlist.name,
-        "author": playlist.owner.display_name,
-        "items": [...res.data.items]
-    })
+        id: playlistId,
+        img: res.data.items[0].track.album.images[0].url,
+        name: playlist.name,
+        author: playlist.owner.display_name,
+        items: [...res.data.items],
+      });
     } else if (playlistPlatform === "youtube") {
       let res = await axios.get(
         `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&playlistId=${playlistId}&key=${process.env.GOOGLE_SECRET}`,
@@ -60,28 +63,30 @@ const PlaylistPage = (props) => {
       );
       console.log("youtube fetch response: ", res.data);
       setPlaylist(res.data);
-      let playlist = user?.googleAccount?.ytPlaylists.items.find(p => p.id === playlistId)
+      let playlist = user?.googleAccount?.ytPlaylists.items.find(
+        (p) => p.id === playlistId
+      );
       setPlaylistToDisplay({
-        "id": playlistId,
-        "img": playlist.snippet.thumbnails.standard.url,
+        id: playlistId,
+        img: playlist?.snippet?.thumbnails?.standard.url,
         //"img": res.data.items[0].snippet.thumbnails.maxres.url,
-         "name": playlist.snippet.title,
-         "author": playlist.snippet.channelTitle,
-        "items": [...res.data.items]
-    })
+        name: playlist?.snippet?.title,
+        author: playlist?.snippet?.channelTitle,
+        items: [...res?.data?.items],
+      });
     } else if (playlistPlatform === "deezer") {
       let res = await axios.get(
         `https://cors-anywhere-ds.herokuapp.com/https://api.deezer.com/playlist/${playlistId}`
       );
-      console.log("deezer: ", res.data)
+      console.log("deezer: ", res.data);
       setPlaylist(res.data);
       setPlaylistToDisplay({
-          "id": res.data.id,
-          "img": res.data.picture_big,
-          "name": res.data.title,
-          "author": res.data.creator.name,
-          "items": [...res.data.tracks.data]
-      })
+        id: res.data.id,
+        img: res.data.picture_big,
+        name: res.data.title,
+        author: res.data.creator.name,
+        items: [...res.data.tracks.data],
+      });
     } else {
       console.log("cant identify the platform");
     }
@@ -92,15 +97,49 @@ const PlaylistPage = (props) => {
       <SideMenu />
       <div className="main-container" id="artist-pg">
         <Container>
-          <Header />
-          {loading ? <p>loading...</p> :
-            <>
-            <img src={playlistToDisplay?.img} width="300px" height="300px" />
-            <h2>{playlistToDisplay?.name}</h2>
-            <p>{playlistToDisplay?.author}</p>
-            <h6>{playlistToDisplay?.items.length} items</h6>
-        </>
-    }
+          <Row>
+            <Header />
+          </Row>
+          <Row className="mt-4">
+            <Col md={6}>
+              {loading ? (
+                <p>loading...</p>
+              ) : (
+                <>
+                  <div className="info">
+                    <img
+                      src={playlistToDisplay?.img}
+                      className="playlist-img"
+                    />
+                    <h2 className="mt-4">{playlistToDisplay?.name}</h2>
+                    <em>
+                      <p>{playlistToDisplay?.author}</p>
+                    </em>
+                    <h6>{playlistToDisplay?.items.length} items</h6>
+                  </div>
+                </>
+              )}
+            </Col>
+            <Col md={5} className="songs-container">
+              { platform === 'spotify' ? playlistToDisplay?.items.map((item, key) => 
+                <PlaylistsSong id={key} songId={item?.track?.id} img={item?.track?.album?.images[0]?.url}
+                artistName={item?.track?.artists[0]?.name} title={item?.track?.name} duration={item?.track?.duration_ms * 0.001}/>
+                ) 
+                : platform === 'youtube' ? playlistToDisplay?.items.map((item, key) => 
+                <>
+                {/*console.log("id=", key, " songId=", item.id, " img=", item.snippet.thumbnails.default.url, 
+              " artistName=", item.snippet.videoOwnerChannelTitle,  "title=", item.snippet.title)*/}
+                   <PlaylistsSong id={key} songId={item?.id} img={item?.snippet?.thumbnails?.default?.url}
+                   artistName={item?.snippet?.videoOwnerChannelTitle} title={item?.snippet?.title} />
+                </>
+                  ) : 
+                  playlistToDisplay?.items.map((item, key) => 
+                  <PlaylistsSong id={key} songId={item?.id} img={item?.album?.cover}
+                  artistName={item?.artist?.name} title={item?.title} />
+                    ) 
+              }
+            </Col>
+          </Row>
         </Container>
       </div>
       <Player />

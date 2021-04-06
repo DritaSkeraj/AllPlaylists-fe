@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import logo from "../assets/logo.png";
 import "../styles/sideMenu.css";
 import { MdExplore } from "react-icons/md";
@@ -76,13 +76,13 @@ const SideMenu = () => {
         </div>
         <div className="platforms">
           <a href={`http://localhost:5000/api/users/spotifyLogin?state=` + state}>
-            <SiSpotify className="spotify" />
+            {user?.spotifyAccount ? <SiSpotify className="spotify" /> : <SiSpotify style={{"color": "#44454C"}} /> }
           </a>
           <a href={`http://localhost:5000/api/users/googleRedirect?state=` + state}>
-            <SiYoutube className="youtube" />
+            {user?.googleAccount ? <SiYoutube className="youtube" /> : <SiYoutube style={{"color": "#44454C"}} /> }
           </a>
           <a href={`http://localhost:5000/api/users/deezerRedirect?state=` + state}>
-            <SiDeezer className="deezer" />
+            {user?.deezerAccount ? <SiDeezer className="deezer" /> : <SiDeezer style={{"color": "#44454C"}} /> }
           </a>
         </div>
       </div>

@@ -211,3 +211,8 @@
     transform: scale(1.25);
     color: white;
   }
+  #spotify-player-container{
+    position: fixed !important;
+    z-index: 999999999;
+    bottom: 0px !important;
+  }

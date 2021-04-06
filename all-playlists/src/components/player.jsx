@@ -2,21 +2,45 @@ import React from "react";
 import "../styles/player.css";
 import {AiOutlineBackward, AiFillPlayCircle, AiOutlineForward} from "react-icons/ai";
 import {BsFillVolumeUpFill} from "react-icons/bs";
+import {useSelector} from 'react-redux';
 
 const Player = () => {
+
+  const currentSong = useSelector((state) => state.nowPlaying.nowPlaying);
+
   return (
     <div className="player-container">
+    {console.log("nowPlayiing:::::", currentSong)}
       <section
         className="player"
         style={{"width": "100%", "position": "fixed"}}
       >
         <div className="player-albumart">
           <div className="nowplaying-albumart mx-3">
-            <img src="http://placehold.it/50x50" />
+            <img src={currentSong?.platform === "spotify" ? 
+            currentSong?.song?.track?.album?.images[0]?.url 
+            : currentSong?.platform === "youtube" ?
+             currentSong?.song?.snippet?.thumbnails?.default?.url : 
+            currentSong?.platform === "deezer" ? 
+            currentSong?.song?.album.cover : "http://placehold.it/50x50"} />
           </div>
           <div className="playing-info">
-            <div className="nowplaying-title">Song title</div>
-            <div className="nowplaying-artist">Artist name</div>
+            <div className="nowplaying-title">
+            {currentSong?.platform === "spotify" ? 
+            currentSong?.song?.track?.name
+            : currentSong?.platform === "youtube" ? 
+            currentSong?.song?.snippet?.title
+            : currentSong?.platform === "deezer" ? 
+            currentSong?.song?.title_short : "you are not playing anything yet"}
+            </div>
+            <div className="nowplaying-artist">
+              {currentSong?.platform === "spotify" ? 
+              currentSong?.song?.track?.artists[0]?.name
+              : currentSong?.platform === "youtube" ? 
+              currentSong?.song?.snippet?.videoOwnerChannelTitle :
+              currentSong?.platform === "deezer" ? currentSong?.song?.artist?.name : ""
+            }
+            </div>
           </div>
         </div>
 

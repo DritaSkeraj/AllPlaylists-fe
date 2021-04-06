@@ -3,11 +3,20 @@ import "../styles/chartsSong.css";
 import { Container, Row, Col } from "react-bootstrap";
 import {BiPlay} from "react-icons/bi";
 import {BsPlusSquareFill} from "react-icons/bs";
+import {useDispatch, useSelector} from "react-redux";
+import {play} from "../store/nowPlaying";
 
 const PlaylistsSong = (props) => {
 
   const minutes = Math.floor(props.duration / 60);
   const seconds = props.duration - minutes * 60;
+  const dispatch = useDispatch();
+
+  const handleSpotifyPlay = (song) => {
+    console.log("🎈🎈🎈🎈🎈🎈: ", song);
+    dispatch(play({song, "platform": props?.platform}));
+  }
+
   return (
     <div className="song-container song-hover">
       <Container>
@@ -30,7 +39,7 @@ const PlaylistsSong = (props) => {
             </p>
   </Col>*/}
           <Col xs={1}>
-            <button className="button-play"><BiPlay className="play-icon"/></button>
+            <button className="button-play" onClick={ () => handleSpotifyPlay(props?.item)}><BiPlay className="play-icon"/></button>
           </Col>
           <Col xs={1}>
             <BsPlusSquareFill className="add-icon"/>

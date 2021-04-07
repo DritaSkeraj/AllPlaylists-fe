@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "../styles/player.css";
 import {
   AiOutlineBackward,
@@ -8,11 +8,21 @@ import {
 import { BsFillVolumeUpFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import SpotifyPlayer from "react-spotify-web-playback";
+import YouTube from "react-youtube";
 
 const Player = () => {
 
+  const [pauseYt, setPauseYt] = useState(true);
   const currentSong = useSelector((state) => state.nowPlaying.nowPlaying);
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const opts = {
+    height: '1',
+    width: '1',
+    paused: {pauseYt},
+    playerVars: {
+      autoplay: 1
+    }
+  };
 
   return (
     <>
@@ -23,6 +33,12 @@ const Player = () => {
             className="player"
             style={{ width: "100%", position: "fixed" }}
           >
+          {currentSong?.platform === "youtube" && 
+          <YouTube
+            videoId={currentSong?.song?.contentDetails?.videoId}
+            containerClassName="embed embed-youtube"
+            opts={opts}
+          />}
             <div className="player-albumart">
               <div className="nowplaying-albumart mx-3">
                 <img
@@ -62,7 +78,7 @@ const Player = () => {
             <div className="middle-part">
               <div className="player-btn player-controller">
                 <AiOutlineBackward className="player-icon" />
-                <AiFillPlayCircle className="player-icon" />
+                <AiFillPlayCircle className="player-icon" onClick={()=>setPauseYt(!pauseYt)}/>
                 <AiOutlineForward className="player-icon" />
               </div>
               <div className="player-nowplaying">

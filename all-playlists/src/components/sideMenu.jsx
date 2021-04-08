@@ -34,13 +34,13 @@ const SideMenu = () => {
   }, [])
 
   return (
-    <div className="menu-container">
+    <div className="menu-container link" >
       <img className="logo" src={logo} />
       <div className="menu">
         <h5>MENU</h5>
         <div className="menu-option">
           <MdExplore className="icon" />
-          <Link to="/main">Explore</Link>
+          <Link to="/main" >Explore</Link>
         </div>
         <div className="menu-option">
           <BsMusicNoteList className="icon" />

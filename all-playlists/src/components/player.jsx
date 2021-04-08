@@ -9,14 +9,15 @@ import { BsFillVolumeUpFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import SpotifyPlayer from "react-spotify-web-playback";
 import YouTube from "react-youtube";
+import musicImg from "../assets/music2.jpg";
 
 const Player = () => {
   
   const currentSong = useSelector((state) => state.nowPlaying.nowPlaying);
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   const opts = {
-    height: "50",
-    width: "50",
+    height: "68",
+    width: "68",
     playerVars: {
       autoplay: 0,
     },
@@ -85,7 +86,7 @@ const Player = () => {
           </section>
         </div>
       )}
-      {currentSong?.platform === "youtube" && (
+      {(currentSong?.platform === "youtube" || !currentSong?.platform ) && (
         <div className="player-container">
           {console.log("nowPlayiing:::::", currentSong)}
           <section
@@ -94,6 +95,8 @@ const Player = () => {
           >
             <div className="player-albumart" style={{ display }}>
               <div className="nowplaying-albumart mx-3">
+              {!currentSong?.platform && <></> }
+                {currentSong?.platform === "youtube" &&
                 <YouTube
                   videoId={currentSong?.song?.contentDetails?.videoId}
                   containerClassName="embed embed-youtube"
@@ -103,6 +106,7 @@ const Player = () => {
                   onPause={onPause}
                   onPlay={playSong}
                 />
+              }
 
                 {/*     
           <iframe
@@ -114,7 +118,8 @@ const Player = () => {
                   width="50"
                   height="50"
                   src="https://www.youtube.com/embed/zfJjcfAPCxo?enablejsapi=1&amp;widgetid=1"
-                ></iframe>
+                ></iframe>*/}
+                {!currentSong?.platform &&
                 <img
                   src={
                     currentSong?.platform === "spotify"
@@ -123,9 +128,9 @@ const Player = () => {
                       ? currentSong?.song?.snippet?.thumbnails?.default?.url
                       : currentSong?.platform === "deezer"
                       ? currentSong?.song?.album.cover
-                      : "http://placehold.it/50x50"
+                      : musicImg
                   }
-                />*/}
+                />}
               </div>
               <div className="playing-info">
                 <div className="nowplaying-title">
@@ -135,7 +140,7 @@ const Player = () => {
                     ? currentSong?.song?.snippet?.title
                     : currentSong?.platform === "deezer"
                     ? currentSong?.song?.title_short
-                    : "you are not playing anything yet"}
+                    : ""}
                 </div>
                 <div className="nowplaying-artist">
                   {currentSong?.platform === "spotify"

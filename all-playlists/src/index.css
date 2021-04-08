@@ -19,3 +19,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+a, .link{
+  color: var(--jet) !important;
+  text-decoration: none !important;
+}
+ a:hover, .link:hover{
+   color: #595a5f !important;
+   text-decoration: none !important;
+ }
+::-webkit-scrollbar
+ {
+   width: 6px;
+   background-color: #F5F5F5;
+ }
+ 
+::-webkit-scrollbar-thumb
+ {
+   background-color: #000000;
+ }

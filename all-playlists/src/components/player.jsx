@@ -11,57 +11,80 @@ import SpotifyPlayer from "react-spotify-web-playback";
 import YouTube from "react-youtube";
 
 const Player = () => {
-
-  const [pauseYt, setPauseYt] = useState(true);
+  
   const currentSong = useSelector((state) => state.nowPlaying.nowPlaying);
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   const opts = {
-    height: "1",
-    width: "1",
-    paused: { pauseYt },
+    height: "50",
+    width: "50",
     playerVars: {
-      autoplay: 1,
+      autoplay: 0,
     },
   };
 
   //const id = 3135556;
   const id = currentSong?.song?.id;
-  const src = `https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=true&width=700&height=350&color=EF5466&layout=&size=medium&type=tracks&id=${id}&app_id=468042`
+  const src = `https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=true&width=700&height=350&color=EF5466&layout=&size=medium&type=tracks&id=${id}&app_id=468042`;
 
   let display = "display: block";
-  if(currentSong?.platform === "deezer"){
+  if (currentSong?.platform === "deezer") {
     display = "display: none !important";
+  }
+
+  const onReady = (event) => {
+    console.log("on ready beeing called 🟡🟡🟡🟡", event.target)
+  };
+
+  const onStateChange = (event) => {
+    console.log("on state change event triggered: 🟥🟥🟥🟥 ", event.data)
+    event.data = 1;
+  }
+
+  const onPlay = (event) => {
+    console.log("on play ▶▶▶▶", event.data)
+  }
+
+  const onPause = () => {
+    console.log("on pause ⏸⏸⏸⏸: ")
+  }
+
+  const playSong = () => {
+    console.log("play song clicked");
+    return 2;
   }
 
   return (
     <>
-    {currentSong?.platform === "spotify" && (
-      <SpotifyPlayer
-        id="spotify-player-container"
-        className="player-container player"
-        token={currentUser?.spotifyAccount?.at}
-        uris={currentSong?.song?.track?.uri}
-      />
-    )}
-    {currentSong?.platform === "deezer" && (
-      <div className="deezer-player-container">
+      {currentSong?.platform === "spotify" && (
+        <SpotifyPlayer
+          id="spotify-player-container"
+          className="player-container player"
+          token={currentUser?.spotifyAccount?.at}
+          uris={currentSong?.song?.track?.uri}
+          styles={{
+            sliderColor: '#1db954'
+          }}
+        />
+      )}
+      {currentSong?.platform === "deezer" && (
+        <div className="deezer-player-container">
           {console.log("nowPlayiing:::::", currentSong)}
           <section
             className="deezer-player"
             style={{ width: "100%", position: "fixed" }}
           >
-      <iframe
-        scrolling="no"
-        frameborder="0"
-        allowTransparency="true"
-        src={src}
-        width="700"
-        height="360"
-        className="deezer-iframe"
-      ></iframe>
-      </section>
-      </div>
-    )}
+            <iframe
+              scrolling="no"
+              frameborder="0"
+              allowTransparency="true"
+              src={src}
+              width="700"
+              height="360"
+              className="deezer-iframe"
+            ></iframe>
+          </section>
+        </div>
+      )}
       {currentSong?.platform === "youtube" && (
         <div className="player-container">
           {console.log("nowPlayiing:::::", currentSong)}
@@ -69,15 +92,29 @@ const Player = () => {
             className="player"
             style={{ width: "100%", position: "fixed" }}
           >
-            {currentSong?.platform === "youtube" && (
-              <YouTube
-                videoId={currentSong?.song?.contentDetails?.videoId}
-                containerClassName="embed embed-youtube"
-                opts={opts}
-              />
-            )}
-            <div className="player-albumart"  style={{display}}>
+            <div className="player-albumart" style={{ display }}>
               <div className="nowplaying-albumart mx-3">
+                <YouTube
+                  videoId={currentSong?.song?.contentDetails?.videoId}
+                  containerClassName="embed embed-youtube"
+                  opts={opts}
+                  onReady={onReady}
+                  onStateChange={onStateChange}
+                  onPause={onPause}
+                  onPlay={playSong}
+                />
+
+                {/*     
+          <iframe
+                  id="player"
+                  frameborder="0"
+                  allowfullscreen="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  title="YouTube video player"
+                  width="50"
+                  height="50"
+                  src="https://www.youtube.com/embed/zfJjcfAPCxo?enablejsapi=1&amp;widgetid=1"
+                ></iframe>
                 <img
                   src={
                     currentSong?.platform === "spotify"
@@ -88,7 +125,7 @@ const Player = () => {
                       ? currentSong?.song?.album.cover
                       : "http://placehold.it/50x50"
                   }
-                />
+                />*/}
               </div>
               <div className="playing-info">
                 <div className="nowplaying-title">
@@ -117,7 +154,7 @@ const Player = () => {
                 <AiOutlineBackward className="player-icon" />
                 <AiFillPlayCircle
                   className="player-icon"
-                  onClick={() => setPauseYt(!pauseYt)}
+                  onClick={playSong}
                 />
                 <AiOutlineForward className="player-icon" />
               </div>
@@ -137,7 +174,7 @@ const Player = () => {
             </div>
           </section>
         </div>
-      ) }
+      )}
     </>
   );
 };

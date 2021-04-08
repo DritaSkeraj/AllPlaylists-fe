@@ -216,6 +216,11 @@
     z-index: 999999999;
     bottom: 0px !important;
   }
+  .PlayerRSWP{
+    z-index: 9 !important;
+    position: fixed !important;
+    bottom: 0 !important;
+  }
   .deezer-player-container{
     max-width: 100vw; 
     height: 14vh;
@@ -227,7 +232,7 @@
     z-index: 9999;
 }
 
-.player {
+.deezer-player {
     color: #ccc;
     background-color: #25252D;
     max-height: 14vh; 

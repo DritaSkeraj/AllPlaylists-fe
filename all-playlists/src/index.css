@@ -1,10 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+:root{
+  --timeberwolf: #CFDBD5;
+  --alabaster: #E8EDDF;
+  --maize-crayola: #F5CB5C;
+  --eerie-black: #242423;
+  --jet: #333533;
+}
 
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* color: var(--blue); */
 }
 
 code {

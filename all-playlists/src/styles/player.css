@@ -1,21 +1,22 @@
 .player-container{
     max-width: 100vw;
-    height: 10vh;
+    height: 18vh;
     position: fixed;
     bottom: 0px;
     background-color: #a0a0a0;
-    color: #fff;
+    color: var(--jet);
 }
 
 .player {
-    color: #ccc;
-    background-color: #25252D;
-    max-height: 10vh;
+    color: var(--jet);
+    background-color: #fff;
+    max-height: 14vh;
     height: 100%;
     bottom: 0px;
     z-index: 10001;
     display: flex;
     justify-content: space-between;
+    border-top: 1px solid var(--gray);
   }
   .playing-info{
       display: flex;
@@ -33,7 +34,7 @@
   .player-btn .far:hover,
   .player-btn .fas:hover,
   .player-setting .fas:hover {
-    color: white;
+    color: var(--eerie-black);
   }
   .middle-part{
       display: flex;
@@ -63,12 +64,11 @@
     width: 100%;
   }
   .nowplaying-albumart img {
-    height: 40px;
-    width: 70px;
+    height: 78px;
+    width: 78px;
     object-fit: cover;
     box-shadow: 0 0 10px 2px rgb(0 0 0 / 50%);
-    margin: 3px 10px 0px 20px;
-    border-radius: 4px;
+    margin: 3px 10px 0px -9px;
   }
   .player-albumart .nowplaying-title {
     font-size: 0.9rem;
@@ -112,7 +112,7 @@
   .fa-pause:hover,
   .fa-play:focus,
   .fa-pause:focus {
-    color: white;
+    color: var(--eerie-black);
     transform: scale(1.25);
     transition: 0.25s;
     position: relative;
@@ -209,10 +209,48 @@
   }
   .player-icon:hover{
     transform: scale(1.25);
-    color: white;
+    color: var(--eerie-black);
   }
   #spotify-player-container{
     position: fixed !important;
     z-index: 999999999;
     bottom: 0px !important;
+  }
+  .PlayerRSWP{
+    z-index: 9 !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    max-height: 14vh !important;
+    height: 14vh !important;
+  }
+  ._ContentRSWP.__1xc0f9k{
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  .deezer-player-container{
+    max-width: 100vw; 
+    height: 14vh;
+    position: fixed;
+    bottom: 0px;
+    background-color: #a0a0a0;
+    color: #fff;
+    width: 100vw;
+    z-index: 9999;
+}
+
+.deezer-player {
+    color: #ccc;
+    background-color: #25252D;
+    max-height: 14vh; 
+    height: 100%;
+    bottom: 0px;
+    z-index: 10001;
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    z-index: 9999;
+  }
+  .deezer-iframe{
+    width: 100vw !important;
   }

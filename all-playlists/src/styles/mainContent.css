@@ -1,11 +1,12 @@
 .main-container{
     width: 85vw;
-    height: 90vh;
+    height: 86vh;
     position: fixed;
     top: 0px;
     right: 0px;
     background-color: #FAFAFA;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 .main-hover{
 }

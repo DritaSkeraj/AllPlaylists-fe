@@ -37,3 +37,10 @@ a, .link{
  {
    background-color: #000000;
  }
+
+ .truncate-text{
+  width: 170px;
+  overflow: hidden;
+  white-space: nowrap;        
+  text-overflow: ellipsis;
+ }

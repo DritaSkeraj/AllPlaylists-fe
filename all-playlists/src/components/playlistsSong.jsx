@@ -29,9 +29,9 @@ const PlaylistsSong = (props) => {
           </Col>
           <Col xs={5}>
             <Row>
-              <p>{props?.artistName}</p>
+              <p className="truncate-text">{props?.artistName}</p>
             </Row>
-            <p>{props?.title?.slice(0, 20)}</p>
+            <p className="truncate-text">{props?.title}</p>
           </Col>
           {/*<Col xs={2} style={{"textAlign": "right"}}>
             <p style={{"fontSize": "0.8rem", "fontWeight": "400"}}>

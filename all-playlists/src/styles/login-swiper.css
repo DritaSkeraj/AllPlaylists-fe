@@ -1,8 +1,13 @@
-.swiper-container {
-  height: 50vh;
-  width: 100%;
+
+.login-swiper-container {
+  height: 80vh !important;
+  width: 118% !important;
+  left: -8px !important;
+  z-index: 1;
+  border-top-right-radius: .4em !important;
+  border-bottom-right-radius: .4em !important;
 }
-.slide-1 {
+.login-slide-1 {
   background: linear-gradient(to right, #ffffffec, #e5de9cba),
     url("../assets/slide1.jpg") no-repeat;
   background-repeat: no-repeat;
@@ -12,9 +17,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding-left: 4rem;
+  padding-left: 2.7rem;
 }
-.platforms-slide1 {
+.login-platforms-slide1 {
   font-size: 1.5rem;
   width: 10%;
   padding-top: 8px;
@@ -22,7 +27,7 @@
   justify-content: space-around;
   color: rgb(153, 153, 153);
 }
-.slide-2 {
+.login-slide-2 {
   background: linear-gradient(
       45deg,
       rgba(239, 245, 244, 0.9360119047619048) 0%,
@@ -39,10 +44,10 @@
   align-items: flex-start;
   width: 100% !important;
 }
-.slide-2 h2 {
+.login-slide-2 h2 {
   padding-left: 4rem;
 }
-.slide-2 button {
+.login-slide-2 button {
   margin-left: 4rem;
   border: 0px;
   box-shadow: 2px 2px 8px #5d5d5e;
@@ -50,7 +55,7 @@
   padding: 10px 30px 10px;
   font-size: 0.8rem;
 }
-.slide-3 {
+.login-slide-3 {
   background: linear-gradient(to right, #ffffff9d, #cacac81c),
     url("../assets/slide3.jpg") no-repeat;
   background-size: 100% 130%;

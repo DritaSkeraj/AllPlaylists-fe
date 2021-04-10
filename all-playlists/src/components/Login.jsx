@@ -9,13 +9,14 @@ import Swiper from "./loginSwiper";
 import { Row, Col } from "react-bootstrap";
 import { isAuthUser } from "../helpers/auth";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserPlaylists, getUserProfile, login } from "../store/user";
+import { getUserPlaylists, getUserProfile, login, signup } from "../store/user";
 import store from "../store/setup/store";
 
 function Login(props) {
   const history = useHistory();
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.user);
+  const [registered, setRegistered] = useState(true);
 
   useEffect(() => {
     if (isAuthUser()) {
@@ -23,38 +24,92 @@ function Login(props) {
     }
   }, []);
 
-  const [formData, setFormData] = useState({
+  // const [formData, setFormData] = useState({
+  //   username: "",
+  //   password: "",
+  // });
+
+  const [signupFormData, setSignupFormData] = useState({
+    name: "",
+    surname: "",
     username: "",
+    email: "",
     password: "",
   });
 
-  const handleFormChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleRegisterFormChange = (e) => {
+    setSignupFormData({ ...signupFormData, [e.target.name]: e.target.value });
     setErrorMsg("");
   };
   const [errorMsg, setErrorMsg] = useState("");
 
-  const { username, password } = formData;
+  const { name, surname, username, email, password } = signupFormData;
+
+  const handleRegisterSubmit = async (e) => {
+    e.preventDefault();
+
+    if (
+      isEmpty(username) ||
+      isEmpty(password) ||
+      isEmpty(email) ||
+      isEmpty(name) ||
+      isEmpty(surname)
+    ) {
+      setErrorMsg("All fields are required!");
+    } else {
+      let { name, surname, username, email, password } = signupFormData;
+      let body = { name, surname, username, email, password };
+      let loginBody = {username, password};
+      dispatch(signup(body));
+      setTimeout(()=>{
+        dispatch(login(loginBody));
+      }, 1000)
+      setTimeout(() => {
+        dispatch(getUserProfile());
+        const storeState = store.getState();
+        console.log("🚩🚩🚩: ", storeState.user.errorMessage)
+        // if(storeState.user.errorMessage == "Invalid Credentials"){
+        //   history.block(() => {
+        //     console.log("not sending you anywhere with those credentials: 🚗🚗🚗")
+        //     });
+        //     setErrorMsg("Wrong username or password!");
+        // }else{
+          history.push("/main");
+        //   console.log("these would do 🚀🚀🚀");
+        // }
+      }, 1000);
+    }
+  };
+
+  const handleFormChange = (e) => {
+    setSignupFormData({ ...signupFormData, [e.target.name]: e.target.value });
+    setErrorMsg("");
+  };
+  //const [errorMsg, setErrorMsg] = useState("");
+
+  //const { username, password } = formData;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (isEmpty(username) || isEmpty(password)) {
-      setErrorMsg("All fields are required");
+      setErrorMsg("All fields are required!");
     } else {
-      let { username, password } = formData;
+      let { username, password } = signupFormData;
       let body = { username, password };
       dispatch(login(body));
       setTimeout(() => {
         dispatch(getUserProfile());
         const storeState = store.getState();
-        console.log("🚩🚩🚩: ", storeState.user.errorMessage)
-        if(storeState.user.errorMessage == "Invalid Credentials"){
+        console.log("🚩🚩🚩: ", storeState.user.errorMessage);
+        if (storeState.user.errorMessage == "Invalid Credentials") {
           history.block(() => {
-            console.log("not sending you anywhere with those credentials: 🚗🚗🚗")
-            });
-            setErrorMsg("Wrong username or password!");
-        }else{
+            console.log(
+              "not sending you anywhere with those credentials: 🚗🚗🚗"
+            );
+          });
+          setErrorMsg("Wrong username or password!");
+        } else {
           history.push("/main");
           console.log("these would do 🚀🚀🚀");
         }
@@ -62,11 +117,11 @@ function Login(props) {
     }
   };
 
-  const showSignupForm = () => {
+  const showSigninForm = () => {
     return (
       <div className="container">
         <div className="row">
-        <p className="login-info">Your username:</p>
+          <p className="login-info">Your username:</p>
           <input
             onChange={handleFormChange}
             value={username}
@@ -88,20 +143,109 @@ function Login(props) {
           />
         </div>
         <div className="row">
-          <input type="checkbox" className="check"/>
+          <input type="checkbox" className="check" />
           <p className="login-info">Keep me logged in.</p>
         </div>
         <div className="row">
           <input
-            onClick={handleSubmit}
+            onClick={handleSubmit }
             className="auth-input submit-btn col-md-12 mb-3 "
-            type="submit" 
+            type="submit"
             value="Log in"
-            />
+          />
         </div>
         <div className="bottom-info">
-          <p>Don't have an account? <span className="login-link">Sign up!</span></p>
-          <p><span className="login-link">Forgot password?</span></p>
+          <p>
+            Don't have an account?{" "}
+            <span className="login-link" onClick={() => setRegistered(false)}>
+              Sign up!
+            </span>
+          </p>
+          <p>
+            <span className="login-link">Forgot password?</span>
+          </p>
+        </div>
+      </div>
+    );
+  };
+
+  const showSignupForm = () => {
+    return (
+      <div className="container">
+        <div className="row">
+          <p className="login-info">Name:</p>
+          <input
+            onChange={handleRegisterFormChange}
+            value={name}
+            name="name"
+            className="auth-input col-md-12 mb-3 "
+            type="text"
+            placeholder="name"
+          />
+        </div>
+        <div className="row">
+          <p className="login-info">Surname:</p>
+          <input
+            onChange={handleRegisterFormChange}
+            value={surname}
+            name="surname"
+            className="auth-input col-md-12 mb-3 "
+            type="text"
+            placeholder="surname"
+          />
+        </div>
+        <div className="row">
+          <p className="login-info">Email:</p>
+          <input
+            onChange={handleRegisterFormChange}
+            value={email}
+            name="email"
+            className="auth-input col-md-12 mb-3 "
+            type="text"
+            placeholder="email"
+          />
+        </div>
+        <div className="row">
+          <p className="login-info">Your password:</p>
+          <input
+            onChange={handleFormChange}
+            value={password}
+            name="password"
+            className="auth-input col-md-12 mb-3 "
+            type="password"
+            placeholder="******"
+          />
+        </div>
+        <div className="row">
+          <p className="login-info">Username:</p>
+          <input
+            onChange={handleRegisterFormChange}
+            value={username}
+            name="username"
+            className="auth-input col-md-12 mb-3 "
+            type="text"
+            placeholder="username"
+          />
+        </div>
+        <div className="row">
+          <input type="checkbox" className="check" />
+          <p className="login-info">Keep me logged in.</p>
+        </div>
+        <div className="row">
+          <input
+            onClick={handleRegisterSubmit}
+            className="auth-input submit-btn col-md-12 mb-3 "
+            type="submit"
+            value="Sign up"
+          />
+        </div>
+        <div className="bottom-info">
+          <p>
+            Already created an account?{" "}
+            <span className="login-link" onClick={() => setRegistered(true)}>
+              Login!
+            </span>
+          </p>
         </div>
       </div>
     );
@@ -112,15 +256,27 @@ function Login(props) {
       <div className="auth-box">
         <Row>
           <Col md={5} className="form-side">
-          <img src={logo} class="logo" style={{"marginLeft": "-2em"}}/>
-          <h4>Log in.</h4>
-          <p className="login-info">Enter with your data that you entered during your registration.</p>
-          {showSignupForm()}
-        <p>{errorMsg}</p>
-        </Col>
-        <Col md={6} className="login-jubotron login-swiper-container">
-        <Swiper />
-        </Col>
+            <img src={logo} class="logo" style={{ marginLeft: "-2em" }} />
+            {registered ? (
+              <>
+                <h4>Log in.</h4>
+                <p className="login-info">
+                  Enter with your data that you entered during your
+                  registration.
+                </p>
+                {showSigninForm()}
+              </>
+            ) : (
+              <>
+                <h4>Sign up.</h4>
+                {showSignupForm()}
+              </>
+            )}
+            <p className="error-message">{errorMsg}</p>
+          </Col>
+          <Col md={6} className="login-jubotron login-swiper-container">
+            <Swiper />
+          </Col>
         </Row>
       </div>
     </div>

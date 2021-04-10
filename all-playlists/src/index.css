@@ -5,6 +5,7 @@
   --maize-crayola: #F5CB5C;
   --eerie-black: #242423;
   --jet: #333533;
+  --my-violet: #AE90E9;
 }
 
 body {
@@ -35,7 +36,8 @@ a, .link{
  
 ::-webkit-scrollbar-thumb
  {
-   background-color: #000000;
+   background-color: #716E63;
+   border-radius: 3px;
  }
 
  .truncate-text{

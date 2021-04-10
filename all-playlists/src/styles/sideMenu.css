@@ -33,9 +33,12 @@
 }
 .menu-option:hover, .playlists>h6:hover {
   text-decoration: none;
-  color: #5773ff;
+  color: #5773ff !important;
   transition: 0.5s;
   cursor: pointer;
+}
+.option-link:hover{
+  color: #5773ff !important;
 }
 .menu-option:after {
   display: inline-block;

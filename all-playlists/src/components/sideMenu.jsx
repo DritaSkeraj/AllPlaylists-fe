@@ -40,7 +40,7 @@ const SideMenu = () => {
         <h5>MENU</h5>
         <div className="menu-option">
           <MdExplore className="icon" />
-          <Link to="/main" >Explore</Link>
+          <Link to="/main" className="option-link">Explore</Link>
         </div>
         <div className="menu-option">
           <BsMusicNoteList className="icon" />

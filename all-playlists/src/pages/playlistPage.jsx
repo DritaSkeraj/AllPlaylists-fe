@@ -120,7 +120,7 @@ const PlaylistPage = (props) => {
                 </>
               )}
             </Col>
-            <Col className="songs-container">
+            <Col md={5} className="songs-container" >
               { platform === 'spotify' ? playlistToDisplay?.items.map((item, key) => 
                 <PlaylistsSong id={key} songId={item?.track?.id} img={item?.track?.album?.images[0]?.url}
                 artistName={item?.track?.artists[0]?.name} title={item?.track?.name} duration={item?.track?.duration_ms * 0.001} 

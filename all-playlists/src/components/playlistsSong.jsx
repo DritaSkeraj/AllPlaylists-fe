@@ -18,7 +18,7 @@ const PlaylistsSong = (props) => {
   }
 
   return (
-    <div className="song-container song-hover">
+    <div className="song-container song-hover" style={{"width": "auto"}}>
       <Container>
         <Row>
           <Col xs={1}>
@@ -27,7 +27,7 @@ const PlaylistsSong = (props) => {
           <Col xs={2}>
             {props?.img && <img src={props?.img}/> }
           </Col>
-          <Col xs={5}>
+          <Col xs={6}>
             <Row>
               <p className="truncate-text">{props?.artistName}</p>
             </Row>

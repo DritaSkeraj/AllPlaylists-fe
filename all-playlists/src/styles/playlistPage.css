@@ -15,11 +15,12 @@
     width: 100%;
     overflow-y: auto;
     margin-top: 0.85rem;
+    overflow-x: hidden;
 }
 .holder{
     margin: 0.5rem;
     padding: 0.5rem;
     border: 0px;
     border-radius: 10px;
-    box-shadow: 2px 0px 7px #7d8693;
+    /* box-shadow: 2px 0px 7px #7d8693; */
 }

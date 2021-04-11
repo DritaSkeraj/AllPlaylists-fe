@@ -54,23 +54,23 @@ const SideMenu = () => {
         <div className="playlists">
           {user?.spotifyAccount?.sPlaylists.map((p) => (
             <Link to={`/playlist/${p.id}~spotify`}>
-            <h6>
+            <p>
               <SiSpotify /> {p.name}
-            </h6>
+            </p>
             </Link>
           ))}
           {user?.googleAccount?.ytPlaylists?.items.map((p) => (
               <Link to={`/playlist/${p.id}~youtube`}>
-            <h6>
+            <p>
               <SiYoutube /> {p.snippet.title}
-            </h6>
+            </p>
             </Link>
           ))}
           {user?.deezerAccount?.dzPlaylists?.data.map((p) => (
               <Link to={`/playlist/${p.id}~deezer`}>
-            <h6>
+            <p>
               <SiDeezer /> {p.title}
-            </h6>
+            </p>
             </Link>
           ))}
         </div>

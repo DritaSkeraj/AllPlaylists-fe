@@ -100,3 +100,6 @@
   transform: scale(1.1);
   cursor: pointer;
 }
+.playlists p{
+  font-size: .8em;
+}

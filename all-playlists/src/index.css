@@ -1,13 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+:root{
+  --timeberwolf: #CFDBD5;
+  --alabaster: #E8EDDF;
+  --maize-crayola: #F5CB5C;
+  --eerie-black: #242423;
+  --jet: #333533;
+  --my-violet: #AE90E9;
+}
 
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* color: var(--blue); */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+a, .link{
+  color: var(--jet) !important;
+  text-decoration: none !important;
+}
+ a:hover, .link:hover{
+   color: #595a5f !important;
+   text-decoration: none !important;
+ }
+::-webkit-scrollbar
+ {
+   width: 6px;
+   background-color: #F5F5F5;
+ }
+ 
+::-webkit-scrollbar-thumb
+ {
+   background-color: #716E63;
+   border-radius: 3px;
+ }
+
+ .truncate-text{
+  width: 170px;
+  overflow: hidden;
+  white-space: nowrap;        
+  text-overflow: ellipsis;
+ }

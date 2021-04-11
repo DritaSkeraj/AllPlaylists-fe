@@ -1,0 +1,26 @@
+.playlist-img{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.songs-container{
+    max-height: 66vh;
+    width: 100%;
+    overflow-y: auto;
+    margin-top: 0.85rem;
+    overflow-x: hidden;
+}
+.holder{
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 0px;
+    border-radius: 10px;
+    /* box-shadow: 2px 0px 7px #7d8693; */
+}

@@ -16,7 +16,7 @@ const ChartsSong = (props) => {
             <p style={{ paddingTop: "40%", fontWeight: "400" }}>{props.id+1}</p>
           </Col>
           <Col xs={2}>
-            <img src={props.data.artist.picture} />
+            {props.img ? <img src={props.img}/> : <img src={props.data.artist.picture} />}
           </Col>
           <Col xs={5}>
             <Row>

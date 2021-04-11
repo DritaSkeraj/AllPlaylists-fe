@@ -2,7 +2,7 @@
   background-color: #e8ecef;
   color: #7d8693;
   width: 15%;
-  height: 90vh;
+  height: 86vh;
   position: fixed;
   left: 0px;
   top: 0px;
@@ -33,9 +33,12 @@
 }
 .menu-option:hover, .playlists>h6:hover {
   text-decoration: none;
-  color: #5773ff;
+  color: #5773ff !important;
   transition: 0.5s;
   cursor: pointer;
+}
+.option-link:hover{
+  color: #5773ff !important;
 }
 .menu-option:after {
   display: inline-block;
@@ -61,6 +64,7 @@
 .playlists {
   max-height: 38vh;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 .playlists h6 {
   font-style: italic;
@@ -69,6 +73,10 @@
   padding-bottom: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
+  width: 170px;
+  overflow: hidden;
+  white-space: nowrap;        
+  text-overflow: ellipsis;
 }
 .platforms {
   font-size: 1.5rem;
@@ -77,7 +85,7 @@
   display: flex;
   justify-content: space-around;
   position: fixed;
-  bottom: 12%;
+  bottom: 15%;
 }
 .platforms .spotify {
   color: #1db954;
@@ -91,4 +99,7 @@
 .spotify:hover, .deezer:hover, .youtube:hover {
   transform: scale(1.1);
   cursor: pointer;
+}
+.playlists p{
+  font-size: .8em;
 }

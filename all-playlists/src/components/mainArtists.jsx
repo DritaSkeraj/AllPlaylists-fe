@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Artist from "./artist";
 import "../styles/mainArtists.css";
 import axios from 'axios';
+import {Link} from "react-router-dom";
 
 const MainArtists = () => {
 
@@ -24,11 +25,10 @@ const MainArtists = () => {
       <p>See all</p>
       </div>
       <div className="artists-row">
-      {console.log("artists: ", artists?.data?.data?.artists?.data?.slice(0,9))
-    }
+  {/*console.log("artists: ", artists?.data?.data?.artists?.data?.slice(0,9))*/}
         {
            artists?.data?.data?.artists?.data?.slice(0,9).map((artist, key) => 
-            <Artist data={artist} />
+            <Link to={`/artist/${artist.id}`}><Artist data={artist} /></Link>
           )
         }
         

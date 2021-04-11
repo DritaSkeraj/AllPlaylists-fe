@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import SpotifyPlayer from "react-spotify-web-playback";
 import YouTube from "react-youtube";
 import musicImg from "../assets/music2.jpg";
+import YoutubePlayer from './youtubePlayer';
 
 const Player = () => {
   
@@ -86,51 +87,33 @@ const Player = () => {
           </section>
         </div>
       )}
-      {(currentSong?.platform === "youtube" || !currentSong?.platform ) && (
+      {(currentSong?.platform === "youtube" || !currentSong?.platform ) && 
+      (
         <div className="player-container">
           {console.log("nowPlayiing:::::", currentSong)}
           <section
             className="player"
             style={{ width: "100%", position: "fixed" }}
           >
+                {currentSong?.platform === "youtube" &&
+
+                <YoutubePlayer id={currentSong?.song?.contentDetails?.videoId}/>}
+                {!currentSong?.platform &&
+                  <>
             <div className="player-albumart" style={{ display }}>
               <div className="nowplaying-albumart mx-3">
               {!currentSong?.platform && <></> }
-                {currentSong?.platform === "youtube" &&
-                <YouTube
-                  videoId={currentSong?.song?.contentDetails?.videoId}
-                  containerClassName="embed embed-youtube"
-                  opts={opts}
-                  onReady={onReady}
-                  onStateChange={onStateChange}
-                  onPause={onPause}
-                  onPlay={playSong}
-                />
-              }
-
-                {/*     
-          <iframe
-                  id="player"
-                  frameborder="0"
-                  allowfullscreen="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  title="YouTube video player"
-                  width="50"
-                  height="50"
-                  src="https://www.youtube.com/embed/zfJjcfAPCxo?enablejsapi=1&amp;widgetid=1"
-                ></iframe>*/}
-                {!currentSong?.platform &&
-                <img
-                  src={
-                    currentSong?.platform === "spotify"
-                      ? currentSong?.song?.track?.album?.images[0]?.url
-                      : currentSong?.platform === "youtube"
-                      ? currentSong?.song?.snippet?.thumbnails?.default?.url
-                      : currentSong?.platform === "deezer"
-                      ? currentSong?.song?.album.cover
-                      : musicImg
-                  }
-                />}
+                  <img
+                    src={
+                      currentSong?.platform === "spotify"
+                        ? currentSong?.song?.track?.album?.images[0]?.url
+                        : currentSong?.platform === "youtube"
+                        ? currentSong?.song?.snippet?.thumbnails?.default?.url
+                        : currentSong?.platform === "deezer"
+                        ? currentSong?.song?.album.cover
+                        : musicImg
+                    }
+                  />
               </div>
               <div className="playing-info">
                 <div className="nowplaying-title">
@@ -151,7 +134,7 @@ const Player = () => {
                     ? currentSong?.song?.artist?.name
                     : ""}
                 </div>
-              </div>
+              </div>  
             </div>
 
             <div className="middle-part">
@@ -177,9 +160,12 @@ const Player = () => {
                 <div id="nowplayingVolume"></div>
               </div>
             </div>
+                </>
+              }
+              
           </section>
         </div>
-      )}
+              )}
     </>
   );
 };

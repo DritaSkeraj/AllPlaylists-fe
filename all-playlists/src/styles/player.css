@@ -4,11 +4,11 @@
     position: fixed;
     bottom: 0px;
     background-color: #a0a0a0;
-    color: var(--jet);
+    color: #777;
 }
 
 .player {
-    color: var(--jet);
+    color: #777;
     background-color: #fff;
     max-height: 14vh;
     height: 100%;
@@ -16,7 +16,7 @@
     z-index: 10001;
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid var(--gray);
+    border-top: 1px solid #777;
   }
   .playing-info{
       display: flex;
@@ -112,7 +112,7 @@
   .fa-pause:hover,
   .fa-play:focus,
   .fa-pause:focus {
-    color: var(--eerie-black);
+    color: #888;
     transform: scale(1.25);
     transition: 0.25s;
     position: relative;
@@ -157,7 +157,7 @@
     top: 50%;
     left: var(--nowplaying-progress);
     transform: translate(-200%, -50%);
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.137);
     z-index: 1;
   }
   .player-volume {
@@ -209,7 +209,7 @@
   }
   .player-icon:hover{
     transform: scale(1.25);
-    color: var(--eerie-black);
+    color: #888;
   }
   #spotify-player-container{
     position: fixed !important;

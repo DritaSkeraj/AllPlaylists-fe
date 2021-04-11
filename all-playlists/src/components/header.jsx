@@ -42,7 +42,7 @@ const Header = () => {
         <h5>LIVE</h5>
       </div>
       <div className="search-holder">
-        <AiOutlineSearch />
+        <AiOutlineSearch style={{"color": "#777"}}/>
         <input className="search-input" placeholder="Type here to search" />
       </div>
       <div className="user-dropdown">

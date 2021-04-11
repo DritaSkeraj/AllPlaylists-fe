@@ -35,10 +35,11 @@ export default () => {
                 </div>
       </SwiperSlide>
       <SwiperSlide className="login-slide-3">
-        <h2>Search and get results from <span style={{"color": "#5773ff"}}>all platforms.</span></h2>
+        <h2>Search and get results from <span style={{"color": "#5773ff"}}>all platforms.
+        <span className="soon">[soon]</span></span></h2>
       </SwiperSlide>
       <SwiperSlide className="login-slide-2">
-        <h2>Create your own playlists.</h2>
+        <h2>Create your own playlists.<span className="soon">[soon]</span></h2>
       </SwiperSlide>
     </Swiper>
   );

@@ -76,3 +76,7 @@
   font-variant: initial;
   line-height: 0.6 !important;
 }
+.soon{
+  font-size: .5em;
+  opacity: 0.5;
+}

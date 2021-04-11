@@ -33,23 +33,6 @@ const Player = () => {
     display = "display: none !important";
   }
 
-  const onReady = (event) => {
-    console.log("on ready beeing called 🟡🟡🟡🟡", event.target)
-  };
-
-  const onStateChange = (event) => {
-    console.log("on state change event triggered: 🟥🟥🟥🟥 ", event.data)
-    event.data = 1;
-  }
-
-  const onPlay = (event) => {
-    console.log("on play ▶▶▶▶", event.data)
-  }
-
-  const onPause = () => {
-    console.log("on pause ⏸⏸⏸⏸: ")
-  }
-
   const playSong = () => {
     console.log("play song clicked");
     return 2;

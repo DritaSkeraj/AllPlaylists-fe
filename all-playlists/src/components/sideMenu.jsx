@@ -75,13 +75,13 @@ const SideMenu = () => {
           ))}
         </div>
         <div className="platforms">
-          <a href={`http://localhost:5000/api/users/spotifyLogin?state=` + state}>
+          <a href={`${process.env.REACT_APP_BE_URL}/users/spotifyLogin?state=` + state}>
             {user?.spotifyAccount ? <SiSpotify className="spotify" /> : <SiSpotify style={{"color": "#44454C"}} /> }
           </a>
-          <a href={`http://localhost:5000/api/users/googleRedirect?state=` + state}>
+          <a href={`${process.env.REACT_APP_BE_URL}/users/googleRedirect?state=` + state}>
             {user?.googleAccount ? <SiYoutube className="youtube" /> : <SiYoutube style={{"color": "#44454C"}} /> }
           </a>
-          <a href={`http://localhost:5000/api/users/deezerRedirect?state=` + state}>
+          <a href={`${process.env.REACT_APP_BE_URL}/users/deezerRedirect?state=` + state}>
             {user?.deezerAccount ? <SiDeezer className="deezer" /> : <SiDeezer style={{"color": "#44454C"}} /> }
           </a>
         </div>

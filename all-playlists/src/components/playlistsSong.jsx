@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/chartsSong.css";
 import { Container, Row, Col } from "react-bootstrap";
+import {Link} from "react-router-dom";
 import {BiPlay} from "react-icons/bi";
 import {BsPlusSquareFill} from "react-icons/bs";
 import {useDispatch, useSelector} from "react-redux";
@@ -29,7 +30,7 @@ const PlaylistsSong = (props) => {
           </Col>
           <Col xs={6}>
             <Row>
-              <p className="truncate-text">{props?.artistName}</p>
+              <Link to={`/artist/${props.artistId}`}><p className="truncate-text">{props?.artistName}</p></Link>
             </Row>
             <p className="truncate-text">{props?.title}</p>
           </Col>

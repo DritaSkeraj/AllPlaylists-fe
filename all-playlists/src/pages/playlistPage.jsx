@@ -137,7 +137,7 @@ const PlaylistPage = (props) => {
                   ) : 
                   playlistToDisplay?.items.map((item, key) => 
                   <PlaylistsSong id={key} songId={item?.id} img={item?.album?.cover}
-                  artistName={item?.artist?.name} title={item?.title} 
+                  artistName={item?.artist?.name} artistId={item?.artist?.id} title={item?.title} 
                   platform={"deezer"} item={item} />
                     ) 
               }

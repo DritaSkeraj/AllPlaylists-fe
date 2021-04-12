@@ -123,7 +123,7 @@ const PlaylistPage = (props) => {
             <Col md={5} className="songs-container" >
               { platform === 'spotify' ? playlistToDisplay?.items.map((item, key) => 
                 <PlaylistsSong id={key} songId={item?.track?.id} img={item?.track?.album?.images[0]?.url}
-                artistName={item?.track?.artists[0]?.name} title={item?.track?.name} duration={item?.track?.duration_ms * 0.001} 
+                artistName={item?.track?.artists[0]?.name} artistId={item?.track?.artists[0].id} title={item?.track?.name} duration={item?.track?.duration_ms * 0.001} 
                 platform={"spotify"} item={item}/>
                 ) 
                 : platform === 'youtube' ? playlistToDisplay?.items.map((item, key) => 
@@ -131,7 +131,7 @@ const PlaylistPage = (props) => {
                 {/*console.log("id=", key, " songId=", item.id, " img=", item.snippet.thumbnails.default.url, 
               " artistName=", item.snippet.videoOwnerChannelTitle,  "title=", item.snippet.title)*/}
                    <PlaylistsSong id={key} songId={item?.id} img={item?.snippet?.thumbnails?.default?.url}
-                   artistName={item?.snippet?.videoOwnerChannelTitle} title={item?.snippet?.title} 
+                   artistName={item?.snippet?.videoOwnerChannelTitle} artistId={item?.snippet?.videoOwnerChannelId} title={item?.snippet?.title} 
                    platform={"youtube"} item={item} />
                 </>
                   ) : 

@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MainPage from "./pages/mainPage";
 import ArtistPage from "./pages/artistPage";
 import PlaylistPage from "./pages/playlistPage";
+import ArtistPageSpotify from "./pages/artistPageSpotify";
+import ArtistPageYoutube from "./pages/artistPageYoutube";
 
 class App extends React.Component {
   state = { authOk: true };
@@ -26,6 +28,12 @@ class App extends React.Component {
           </Switch>
           <Switch>
             <ArtistPage path="/artist/:id" exact/>
+          </Switch>
+          <Switch>
+            <ArtistPageSpotify path="/spotifyArtist/:id" exact/>
+          </Switch>
+          <Switch>
+            <ArtistPageYoutube path="/youtubeArtist/:id" exact/>
           </Switch>
           <Switch>
             <PlaylistPage path="/playlist/:id" exact/>

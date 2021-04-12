@@ -1,11 +1,11 @@
 import React from "react";
 import "../styles/chartsSong.css";
 import { Container, Row, Col } from "react-bootstrap";
-import {Link} from "react-router-dom";
-import {BiPlay} from "react-icons/bi";
-import {BsPlusSquareFill} from "react-icons/bs";
-import {useDispatch, useSelector} from "react-redux";
-import {play} from "../store/nowPlaying";
+import { Link } from "react-router-dom";
+import { BiPlay } from "react-icons/bi";
+import { BsPlusSquareFill } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { play } from "../store/nowPlaying";
 
 const PlaylistsSong = (props) => {
 
@@ -15,22 +15,34 @@ const PlaylistsSong = (props) => {
 
   const handleSpotifyPlay = (song) => {
     console.log("🎈🎈🎈🎈🎈🎈: ", song);
-    dispatch(play({song, "platform": props?.platform}));
-  }
+    dispatch(play({ song, platform: props?.platform }));
+  };
 
   return (
-    <div className="song-container song-hover" style={{"width": "auto"}}>
+    <div className="song-container song-hover" style={{ width: "auto" }}>
       <Container>
         <Row>
           <Col xs={1}>
-            <p style={{ paddingTop: "40%", fontWeight: "400" }}>{props?.id+1}</p>
+            <p style={{ paddingTop: "40%", fontWeight: "400" }}>
+              {props?.id + 1}
+            </p>
           </Col>
-          <Col xs={2}>
-            {props?.img && <img src={props?.img}/> }
-          </Col>
+          <Col xs={2}>{props?.img && <img src={props?.img} />}</Col>
           <Col xs={6}>
             <Row>
-              <Link to={`/artist/${props.artistId}`}><p className="truncate-text">{props?.artistName}</p></Link>
+              {props?.platform == "deezer" ? (
+                <Link to={`/artist/${props.artistId}`}>
+                  <p className="truncate-text">{props?.artistName}</p>
+                </Link>
+              ) : props?.platform == "spotify" ? (
+                <Link to={`/spotifyArtist/${props.artistId}`}>
+                  <p className="truncate-text">{props?.artistName}</p>
+                </Link>
+              ) : (
+                <Link to={`/youtubeArtist/${props.artistId}`}>
+                  <p className="truncate-text">{props?.artistName}</p>
+                </Link>
+              )}
             </Row>
             <p className="truncate-text">{props?.title}</p>
           </Col>
@@ -40,10 +52,15 @@ const PlaylistsSong = (props) => {
             </p>
   </Col>*/}
           <Col xs={1}>
-            <button className="button-play" onClick={ () => handleSpotifyPlay(props?.item)}><BiPlay className="play-icon"/></button>
+            <button
+              className="button-play"
+              onClick={() => handleSpotifyPlay(props?.item)}
+            >
+              <BiPlay className="play-icon" />
+            </button>
           </Col>
           <Col xs={1}>
-            <BsPlusSquareFill className="add-icon"/>
+            <BsPlusSquareFill className="add-icon" />
           </Col>
         </Row>
       </Container>

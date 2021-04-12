@@ -61,7 +61,7 @@ const ArtistPage = (props) => {
               <div className="artist-holder">
                 <h3>top tracks</h3>
                 {top?.data?.map((res, key) => (
-                  <ChartsSong data={res} id={key} img={res?.album?.cover} />
+                  <ChartsSong data={res} id={key} img={res?.album?.cover} item={res}/>
                 ))}
               </div>
             </Col>

@@ -27,7 +27,7 @@ const TopCharts = () => {
         {/*console.log("charts.data: ", charts?.data?.data?.tracks)*/}
         {
           charts?.data?.data?.tracks?.data?.slice(0, 5).map((track, key) => 
-            <ChartsSong data={track} id={key}/>
+            <ChartsSong data={track} id={key} item={track}/>
           )
         }
         </Row>

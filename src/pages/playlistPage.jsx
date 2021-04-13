@@ -54,7 +54,7 @@ const PlaylistPage = (props) => {
       });
     } else if (playlistPlatform === "youtube") {
       let res = await axios.get(
-        `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&playlistId=${playlistId}&key=${process.env.GOOGLE_SECRET}`,
+        `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&playlistId=${playlistId}&key=vPTEETaTilqfvlsvHZwOrvnO`,
         {
           headers: {
             Authorization: `Bearer ${currentUser.googleAccount.at}`,

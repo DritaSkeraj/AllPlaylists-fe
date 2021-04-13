@@ -75,13 +75,13 @@ const SideMenu = () => {
           ))}
         </div>
         <div className="platforms">
-          <a href={`https://allplaylists.herokuapp.com/users/spotifyLogin?state=` + state}>
+          <a href={`https://allplaylists.herokuapp.com/apiusers/spotifyLogin?state=` + state}>
             {user?.spotifyAccount ? <SiSpotify className="spotify" /> : <SiSpotify style={{"color": "#44454C"}} /> }
           </a>
-          <a href={`https://allplaylists.herokuapp.com/users/googleRedirect?state=` + state}>
+          <a href={`https://allplaylists.herokuapp.com/apiusers/googleRedirect?state=` + state}>
             {user?.googleAccount ? <SiYoutube className="youtube" /> : <SiYoutube style={{"color": "#44454C"}} /> }
           </a>
-          <a href={`https://allplaylists.herokuapp.com/users/deezerRedirect?state=` + state}>
+          <a href={`https://allplaylists.herokuapp.com/apiusers/deezerRedirect?state=` + state}>
             {user?.deezerAccount ? <SiDeezer className="deezer" /> : <SiDeezer style={{"color": "#44454C"}} /> }
           </a>
         </div>

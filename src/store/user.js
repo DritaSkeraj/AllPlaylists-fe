@@ -44,7 +44,7 @@ export default slice.reducer;
 
 export const getUserProfile = () =>
 	apiCall({
-		url: `https://allplaylists.herokuapp.com/users/me`,
+		url: `https://allplaylists.herokuapp.com/apiusers/me`,
 		onStart: requested.type,
 		onSuccess: loginSuccess.type,
 		onError: failed.type,
@@ -52,7 +52,7 @@ export const getUserProfile = () =>
 
 export const getUserPlaylists = () =>
 	apiCall({
-		url: `https://allplaylists.herokuapp.com/playlists`,
+		url: `https://allplaylists.herokuapp.com/apiplaylists`,
 		onStart: requested.type,
 		onSuccess: loginSuccess.type,
 		onError: failed.type,
@@ -60,7 +60,7 @@ export const getUserPlaylists = () =>
 
 export const logout = () =>
 	apiCall({
-		url: `https://allplaylists.herokuapp.com/auth/logout`,
+		url: `https://allplaylists.herokuapp.com/apiauth/logout`,
 		onStart: requested.type,
 		onSuccess: logoutSuccess.type,
 		onError: failed.type,
@@ -68,7 +68,7 @@ export const logout = () =>
 
 export const login = (data) =>
 	apiCall({
-		url: `https://allplaylists.herokuapp.com/auth/login`,
+		url: `https://allplaylists.herokuapp.com/apiauth/login`,
 		method: "post",
 		data,
 		onStart: requested.type,
@@ -78,7 +78,7 @@ export const login = (data) =>
 
 export const signup = (data) =>
 	apiCall({
-		url: `https://allplaylists.herokuapp.com/auth/signup`,
+		url: `https://allplaylists.herokuapp.com/apiauth/signup`,
 		method: "post",
 		data,
 		onStart: requested.type,

@@ -62,9 +62,9 @@ const api = ({ dispatch }) => (next) => async (action) => {
 		if (onSuccess) dispatch({ type: onSuccess, payload: response.data });
 		
 	} catch (error) {
-		console.log("errorr is: ", error.response.data);
+		console.log("errorr is: ", error?.response?.data);
 		//General error action
-		const errorMessage = error.response.data.errors;
+		const errorMessage = error?.response?.data?.errors;
 		dispatch(actions.apiCallFailed(errorMessage));
 
 		//Spesific error action

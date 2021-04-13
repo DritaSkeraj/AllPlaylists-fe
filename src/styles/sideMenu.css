@@ -1,0 +1,105 @@
+.menu-container {
+  background-color: #e8ecef;
+  color: #7d8693;
+  width: 15%;
+  height: 86vh;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+.logo {
+  width: 11rem;
+  height: 5rem;
+}
+.menu {
+  position: relative;
+  padding-left: 10%;
+}
+.menu h5 {
+  color: #b7b8c0;
+  font-size: 1rem;
+}
+.menu-option {
+  color: #44454c;
+  padding: 3px;
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: row;
+}
+.menu-option:hover, .playlists>h6:hover {
+  text-decoration: none;
+  color: #5773ff !important;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.option-link:hover{
+  color: #5773ff !important;
+}
+.menu-option:after {
+  display: inline-block;
+  content: "";
+  background-color: #5773ff;
+  transform: scaleX(0);
+  transition: 300ms ease-in-out;
+  z-index: 1000;
+  position: absolute;
+  right: 13px;
+  bottom: -5px;
+  height: 10%;
+  width: 2.5px;
+}
+.menu-optionn:hover:after {
+  transform: scaleX(1);
+  z-index: 1000;
+}
+.icon {
+  padding-right: 8px;
+  font-size: 1.3rem;
+}
+.playlists {
+  max-height: 38vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.playlists h6 {
+  font-style: italic;
+  font-size: 0.8rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 170px;
+  overflow: hidden;
+  white-space: nowrap;        
+  text-overflow: ellipsis;
+}
+.platforms {
+  font-size: 1.5rem;
+  width: 10%;
+  padding-top: 8px;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 15%;
+}
+.platforms .spotify {
+  color: #1db954;
+}
+.platforms .deezer {
+  color: #f49c1d;
+}
+.platforms .youtube {
+  color: #ff0000;
+}
+.spotify:hover, .deezer:hover, .youtube:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.playlists p{
+  font-size: .8em;
+}

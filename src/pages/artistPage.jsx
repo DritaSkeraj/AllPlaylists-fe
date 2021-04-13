@@ -24,7 +24,8 @@ const ArtistPage = (props) => {
     );
     console.log("fetch artist from artist page result: ", result.data);
     setArtist(result.data);
-
+//comment
+const name = 'hello'
     const top = await axios.get(
       `https://cors-anywhere-ds.herokuapp.com/https://api.deezer.com/artist/${artistId}/top`
     );

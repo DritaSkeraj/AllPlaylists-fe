@@ -44,7 +44,7 @@ export default slice.reducer;
 
 export const getUserProfile = () =>
 	apiCall({
-		url: `${process.env.REACT_APP_BE_URL}/users/me`,
+		url: `https://cors-anywhere-ds.herokuapp.com/${process.env.REACT_APP_BE_URL}/users/me`,
 		onStart: requested.type,
 		onSuccess: loginSuccess.type,
 		onError: failed.type,
@@ -52,7 +52,7 @@ export const getUserProfile = () =>
 
 export const getUserPlaylists = () =>
 	apiCall({
-		url: `${process.env.REACT_APP_BE_URL}/playlists`,
+		url: `https://cors-anywhere-ds.herokuapp.com/${process.env.REACT_APP_BE_URL}/playlists`,
 		onStart: requested.type,
 		onSuccess: loginSuccess.type,
 		onError: failed.type,
@@ -60,7 +60,7 @@ export const getUserPlaylists = () =>
 
 export const logout = () =>
 	apiCall({
-		url: `${process.env.REACT_APP_BE_URL}/auth/logout`,
+		url: `https://cors-anywhere-ds.herokuapp.com/${process.env.REACT_APP_BE_URL}/auth/logout`,
 		onStart: requested.type,
 		onSuccess: logoutSuccess.type,
 		onError: failed.type,
@@ -68,7 +68,7 @@ export const logout = () =>
 
 export const login = (data) =>
 	apiCall({
-		url: `${process.env.REACT_APP_BE_URL}/auth/login`,
+		url: `https://cors-anywhere-ds.herokuapp.com/${process.env.REACT_APP_BE_URL}/auth/login`,
 		method: "post",
 		data,
 		onStart: requested.type,
@@ -78,7 +78,7 @@ export const login = (data) =>
 
 export const signup = (data) =>
 	apiCall({
-		url: `${process.env.REACT_APP_BE_URL}/auth/signup`,
+		url: `https://cors-anywhere-ds.herokuapp.com/${process.env.REACT_APP_BE_URL}/auth/signup`,
 		method: "post",
 		data,
 		onStart: requested.type,

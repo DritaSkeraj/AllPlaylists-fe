@@ -21,8 +21,6 @@ export default () => {
       slidesPerView={1}
       navigation
       scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log("slide change")}
       className="swiper-container"
     >
       <SwiperSlide className="slide-1">

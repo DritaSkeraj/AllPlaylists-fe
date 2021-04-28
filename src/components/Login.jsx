@@ -43,6 +43,10 @@ function Login(props) {
   };
   const [errorMsg, setErrorMsg] = useState("");
 
+  useEffect(()=>{
+    setErrorMsg("")
+  }, [username, password])
+
   const { name, surname, username, email, password } = signupFormData;
 
   const handleRegisterSubmit = async (e) => {

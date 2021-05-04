@@ -67,10 +67,11 @@ function Login(props) {
       dispatch(signup(body));
       setTimeout(()=>{
         dispatch(login(loginBody));
-        dispatch(getUserProfile());
+        console.log("💥💥💥user signup-login credentials: ", loginBody)
+        //dispatch(getUserProfile());
       }, 1000)
       setTimeout(() => {
-        dispatch(getUserProfile());
+        //dispatch(getUserProfile());
         const storeState = store.getState();
         console.log("🚩🚩🚩: ", storeState.user.errorMessage)
         // if(storeState.user.errorMessage == "Invalid Credentials"){

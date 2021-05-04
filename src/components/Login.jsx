@@ -66,8 +66,8 @@ function Login(props) {
       let loginBody = {username, password};
       dispatch(signup(body));
       setTimeout(()=>{
-        dispatch(setInitalState());
         dispatch(login(loginBody));
+        dispatch(getUserProfile());
       }, 1000)
       setTimeout(() => {
         dispatch(getUserProfile());

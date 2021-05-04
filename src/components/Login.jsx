@@ -9,7 +9,7 @@ import Swiper from "./loginSwiper";
 import { Row, Col } from "react-bootstrap";
 import { isAuthUser } from "../helpers/auth";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserPlaylists, getUserProfile, login, signup } from "../store/user";
+import { getUserPlaylists, getUserProfile, login, signup, setInitalState } from "../store/user";
 import store from "../store/setup/store";
 
 function Login(props) {
@@ -66,6 +66,7 @@ function Login(props) {
       let loginBody = {username, password};
       dispatch(signup(body));
       setTimeout(()=>{
+        dispatch(setInitalState());
         dispatch(login(loginBody));
       }, 1000)
       setTimeout(() => {

@@ -35,10 +35,14 @@ const slice = createSlice({
 			loading: false,
 			errorMessage: action.payload,
 		}),
+		setInitalState: () => ({
+			state: initialState,
+			loading: false
+		})
 	},
 });
 
-export const { requested, loginSuccess, logoutSuccess, failed } = slice.actions;
+export const { requested, loginSuccess, logoutSuccess, failed, setInitalState } = slice.actions;
 
 export default slice.reducer;
 

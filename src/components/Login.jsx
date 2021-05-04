@@ -68,6 +68,7 @@ function Login(props) {
       setTimeout(()=>{
         dispatch(login(loginBody));
         console.log("💥💥💥user signup-login credentials: ", loginBody)
+        localStorage.setItem("currentUser", loginBody.username);
         //dispatch(getUserProfile());
       }, 1000)
       setTimeout(() => {
